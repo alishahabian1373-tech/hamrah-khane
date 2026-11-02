@@ -15,10 +15,12 @@ jobs:
       - name: Build
         run: |
           npm init -y
-          npm i @capacitor/core @capacitor/cli @capacitor/android @capacitor/local-notifications
+          npm i @capacitor/core @capacitor/cli @capacitor/android @capacitor/local-notifications @capacitor/app
           npx cap init "همراه خانه" com.hamrahkhane.app --web-dir=www
           mkdir -p www && cp index.html www/
           npx cap add android
+          sed -i 's#<application#<uses-permission android:name="android.permission.USE_EXACT_ALARM" />\n    <application#' android/app/src/main/AndroidManifest.xml
+          grep -n "EXACT_ALARM" android/app/src/main/AndroidManifest.xml
           npx cap sync android
           cd android && ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
