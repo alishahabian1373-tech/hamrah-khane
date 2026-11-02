@@ -8,7 +8,7 @@
 :root{--bg:#eef2f5;--cd:#fff;--tx:#17212b;--mu:#667583;--ac:#0e8c8c;--on:#fff;--wn:#c77d00;--rd:#c23b32;--ln:#dbe3e9}
 @media(prefers-color-scheme:dark){:root{--bg:#0f1820;--cd:#17232d;--tx:#e6edf2;--mu:#8fa0ad;--ac:#2fc4c0;--on:#06201f;--wn:#f0b429;--rd:#ff7b70;--ln:#243441}}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 Vazirmatn,Tahoma,system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 Vazirmatn,Tahoma,system-ui,sans-serif;padding-top:env(safe-area-inset-top,0px);padding-bottom:calc(24px + env(safe-area-inset-bottom,0px))}
 header{padding:22px 18px 6px}
 h1{margin:0;font-size:26px;font-weight:800}
 .hr{display:flex;justify-content:space-between;align-items:center;gap:8px}
@@ -22,6 +22,25 @@ main{padding:12px 14px}
 .fm.s button{flex:0 0 auto}
 .fm>.jd{flex:1 1 100%;display:flex;gap:6px}
 .jd select{flex:1;min-width:0;padding:10px 6px}
+.cn{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cn b{font-size:18px}
+.cn em{font-size:13px}
+nav button{font-size:14px}
+.cn button,.gh2{background:var(--cd);color:var(--ac);padding:6px 14px;font-size:13px}
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:14px;text-align:center}
+.cg b{font-size:12px;color:var(--mu);font-weight:600;padding:4px 0}
+.cg b:nth-child(7){color:var(--rd)}
+.cg button{aspect-ratio:1;padding:0;background:var(--cd);color:var(--tx);border-radius:12px;position:relative;font-size:15px;font-weight:600}
+.cg .hl{color:var(--rd)}
+.cg .td{box-shadow:inset 0 0 0 2px var(--wn)}
+.cg .sl{background:var(--ac);color:var(--on)}
+.cg u{position:absolute;bottom:5px;left:50%;margin-left:-2px;width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.7}
+.hm{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:8px}
+.hm button{background:var(--cd);color:var(--tx);border-radius:22px;padding:20px 16px;min-height:132px;text-align:start;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;box-shadow:inset 0 -4px 0 var(--ac)}
+.hm b{font-size:21px}
+.hm small{color:var(--mu);font-size:13px;font-weight:500;line-height:1.5}
+.ts{position:fixed;inset:auto 16px calc(24px + env(safe-area-inset-bottom,0px));background:var(--tx);color:var(--bg);padding:12px 16px;border-radius:14px;text-align:center;z-index:9;font-size:14px}
+.lb{color:var(--mu);font-size:13px;margin:16px 4px 8px}
 .sdw .jd{display:flex;gap:6px}
 .jd input[type=text]{flex:1;min-width:0;text-align:center}
 .jd b{color:var(--mu)}
@@ -64,19 +83,13 @@ nav .on{color:var(--ac);border-top-color:var(--ac)}
 </head>
 <body>
 <div id="app"></div>
-<nav>
-<button data-t="shop" onclick="go(this)">خرید</button>
-<button data-t="exp" onclick="go(this)">هزینه</button>
-<button data-t="rem" onclick="go(this)">یادآور</button>
-<button data-t="chore" onclick="go(this)">کارها</button>
-</nav>
 <script>
 const g=id=>document.getElementById(id);
 let S;try{S=JSON.parse(localStorage.getItem('hk'))}catch(e){}
 S=S||{shop:[],exp:[],rem:[],chore:[]};
 if(S.cm==null)S.cm=1;
 if(S.cal==null)S.cal='j';
-let tab='shop',T;
+let tab='home',T;
 const save=()=>{try{localStorage.setItem('hk',JSON.stringify(S))}catch(e){}monthly()};
 const uid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,6);
 const fa=n=>Number(n).toLocaleString('fa-IR').replace(/٬/g,',');
@@ -94,7 +107,7 @@ el.value=d?fa(+d):'';let c=0,i=0;for(;i<el.value.length&&c<before;i++)if(/[\d۰-
 try{el.setSelectionRange(i,i)}catch(e){}}
 function lim(el,mx){let v=String(el.value).replace(/[۰-۹]/g,d=>d.charCodeAt(0)-1776).replace(/\D/g,'').slice(0,2);if(v!==''&&+v>mx)v=String(mx);el.value=v}
 const gtm=()=>String(Math.min(23,num(val('th')))).padStart(2,'0')+':'+String(Math.min(59,num(val('tn')))).padStart(2,'0');
-const CATS=['خوراک','قبض','حمل‌ونقل','سلامت','پوشاک','تفریح','سایر'];
+const CATS=['خوراک','قبض','حمل‌ونقل','سلامت','پوشاک','تفریح','حیوان خانگی','سایر'];
 const RT=['قبض','قسط','چک','سایر'];
 const ED=[1,2,3,4,5,6,7,14,30].map(n=>[n,'یادآوری '+fa(n)+' روز زودتر']);
 const ed=x=>x.e==null?1:x.e;
@@ -113,24 +126,24 @@ const dimc=(y,m)=>S.cal=='g'?new Date(y,m,0).getDate():dim(y,m);
 const toIso=(y,m,d)=>{if(S.cal!='g')return j2g(y,m,d);d=Math.min(d,dimc(y,m));return y+'-'+String(m).padStart(2,'0')+'-'+String(d).padStart(2,'0')};
 const dim=(y,m)=>m<7?31:m<12?30:jp(dt(j2g(y,12,30))).day==30?30:29;
 function fixd(){const s=g('wd'),o=+s.value,n=dimc(+g('wy').value,+g('wm').value);s.innerHTML=Array.from({length:n},(_,i)=>`<option value=${i+1}>${fa(i+1)}</option>`).join('');s.value=Math.min(o,n)}
-const jpick=()=>{const p=cp(dt(T)),so=(v,l,s)=>`<option value=${v}${s?' selected':''}>${l}</option>`;
-return `<div class=jd><select id=wd>${Array.from({length:dimc(p.year,p.month)},(_,i)=>so(i+1,fa(i+1),i+1==p.day)).join('')}</select><select id=wm onchange="fixd()">${(S.cal=='g'?GN:MN).map((n,i)=>so(i+1,n,i+1==p.month)).join('')}</select><select id=wy onchange="fixd()">${[-1,0,1,2,3,4,5].map(i=>so(p.year+i,fy(p.year+i),!i)).join('')}</select></div>`};
+const jpick=(x='',d0=T,yr)=>{const p=cp(dt(d0)),so=(v,l,s)=>`<option value=${v}${s?' selected':''}>${l}</option>`;
+return `<div class=jd${x}><select id=wd>${Array.from({length:dimc(p.year,p.month)},(_,i)=>so(i+1,fa(i+1),i+1==p.day)).join('')}</select><select id=wm onchange="fixd()">${(S.cal=='g'?GN:MN).map((n,i)=>so(i+1,n,i+1==p.month)).join('')}</select><select id=wy onchange="fixd()">${(yr||[-1,0,1,2,3,4,5]).map(i=>so(p.year+i,fy(p.year+i),!i)).join('')}</select></div>`};
 const RP=[[0,'یک‌بار'],[1,'هر روز'],[7,'هر هفته']];
 const opts=a=>a.map(x=>`<option>${x}</option>`).join('');
 const xb=(k,id)=>`<button class=x aria-label="حذف" onclick="rm('${k}','${id}')">×</button>`;
 const empty=t=>`<p class=em>${t}</p>`;
 const DAYS=[[5,'جمعه'],[6,'شنبه'],[0,'یکشنبه'],[1,'دوشنبه'],[2,'سه‌شنبه'],[3,'چهارشنبه'],[4,'پنجشنبه']];
 let cd=new Date().getDay();
-const isT=()=>cd==new Date().getDay(),onDay=x=>!x.ds||x.ds.includes(cd);
-const sub=x=>x.ds?(x.ds.length==7?'هر روز':DAYS.filter(d=>x.ds.includes(d[0])).map(d=>d[1]).join('، ')):RP.find(p=>p[0]==x.r)[1];
+const isT=()=>cd==new Date().getDay(),onDay=x=>(!x.ds||x.ds.includes(cd))&&(!x.w||diff(x.w,T)<=6);
+const sub=x=>x.w?jd(x.w,{day:'numeric',month:'long',year:'numeric'}):x.ds?(x.ds.length==7?'هر روز':DAYS.filter(d=>x.ds.includes(d[0])).map(d=>d[1]).join('، ')):RP.find(p=>p[0]==x.r)[1];
 const strip=()=>`<div class=wk>${DAYS.map(d=>`<button class="${d[0]==cd?'on':''}${d[0]==new Date().getDay()?' td':''}" onclick="cd=${d[0]};render()">${d[1]}</button>`).join('')}</div>`;
-const chips=()=>`<div class=ds>${DAYS.map(d=>`<label><input type=checkbox value=${d[0]}${d[0]==cd?' checked':''}><span>${d[1]}</span></label>`).join('')}</div>`;
+const chips=()=>`<div class=ds id=cdays style="display:none">${DAYS.map(d=>`<label><input type=checkbox value=${d[0]}${d[0]==cd?' checked':''}><span>${d[1]}</span></label>`).join('')}</div>`;
 const done=c=>c.l&&(c.r==0||diff(T,c.l)<c.r);
 const dl=x=>{const n=diff(x.w,T);return n<0?[fa(-n)+' روز گذشته','late']:n==0?['امروز','now']:[fa(n)+' روز مانده','']};
 
 const V={
-shop:()=>`<div class=fm><input id=t placeholder="چی لازم داری؟"><div class=jd><label class=ck><input type=checkbox id=al onchange="g('sd').style.display=this.checked?'block':'none'"><span>آلارم</span></label><input id=tn onfocus="this.select()" onclick="this.select()" oninput="lim(this,59)" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="دقیقه" value="00" aria-label="دقیقه"><b>:</b><input id=th onfocus="this.select()" onclick="this.select()" oninput="lim(this,23);if(this.value.length>=2)g('tn').focus()" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="ساعت" value="09" aria-label="ساعت"></div><div id=sd class=sdw style="display:none;flex:1 1 100%">${jpick()}</div><button onclick="add('shop')">افزودن</button></div>`+
-(S.shop.length?S.shop.slice().sort((a,b)=>a.ok-b.ok).map(x=>`<div class="it ${x.ok?'dn':''}"><label><input type=checkbox ${x.ok?'checked':''} onchange="tg('shop','${x.id}')"><span>${esc(x.t)}${x.al?`<small>آلارم ${jd(x.w,{day:'numeric',month:'long'})}، ${ft(x.tm)}</small>`:''}</span></label>${xb('shop',x.id)}</div>`).join('')+(S.shop.some(x=>x.ok)?`<button class=gh onclick="clr()">پاک کردن خریده‌شده‌ها</button>`:''):empty('لیست خالیه. اولین قلم رو بنویس.')),
+shop:()=>`<div class=fm><input id=t placeholder="چی لازم داری؟">${jpick()}<div class=jd><label class=ck><input type=checkbox id=al><span>آلارم</span></label><input id=tn onfocus="this.select()" onclick="this.select()" oninput="lim(this,59)" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="دقیقه" value="00" aria-label="دقیقه"><b>:</b><input id=th onfocus="this.select()" onclick="this.select()" oninput="lim(this,23);if(this.value.length>=2)g('tn').focus()" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="ساعت" value="09" aria-label="ساعت"></div><button onclick="add('shop')">افزودن</button></div>`+
+(S.shop.length?S.shop.slice().sort((a,b)=>a.ok-b.ok||(a.w||'').localeCompare(b.w||'')).map(x=>`<div class="it ${x.ok?'dn':''}"><label><input type=checkbox ${x.ok?'checked':''} onchange="tg('shop','${x.id}')"><span>${esc(x.t)}${x.w?`<small>${jd(x.w,{day:'numeric',month:'long',year:'numeric'})}${x.al?'، آلارم '+ft(x.tm):''}</small>`:''}</span></label>${xb('shop',x.id)}</div>`).join('')+(S.shop.some(x=>x.ok)?`<button class=gh onclick="clr()">پاک کردن خریده‌شده‌ها</button>`:''):empty('لیست خالیه. اولین قلم رو بنویس.')),
 
 exp:()=>{
 const mk=jd(T,MK),m=S.exp.filter(e=>jd(e.w,MK)==mk),tot=m.reduce((s,e)=>s+e.a,0),by={};
@@ -143,18 +156,19 @@ Object.entries(by).sort((a,b)=>b[1]-a[1]).map(([c,v])=>`<div class=bar><span>${c
 rem:()=>`<div class=it><label><input type=checkbox ${S.cm?'checked':''} onchange="tcm()"><span>یادآوری آخر ماه برای چک‌های ماه بعد<small>${S.cm?'روشن':'خاموش'}</small></span></label></div><div class=fm><input id=t placeholder="عنوان، مثلاً قسط وام"><select id=c>${opts(RT)}</select>${jpick()}<input oninput="fmt(this)" id=m type=text inputmode=numeric placeholder="مبلغ (اختیاری)"><select id=e>${ED.map(p=>`<option value=${p[0]}${p[0]==1?' selected':''}>${p[1]}</option>`).join('')}</select>${alr()}<button onclick="add('rem')">افزودن یادآور</button></div>`+
 (S.rem.length?S.rem.slice().sort((a,b)=>a.ok-b.ok||a.w.localeCompare(b.w)).map(x=>{const[l,c]=dl(x);return `<div class="it ${x.ok?'dn':''}"><label><input type=checkbox ${x.ok?'checked':''} onchange="tg('rem','${x.id}')"><span>${esc(x.t)}<small>${esc(x.c)}، ${jd(x.w,{day:'numeric',month:'long',year:'numeric'})}${x.m?'، '+fa(x.m)+' تومان':''}، ${ed(x)?fa(ed(x))+' روز زودتر':'همان روز'}${x.al?'، آلارم '+ft(x.tm):''}</small></span></label>${x.ok?'':`<em class="${c}">${l}</em>`}${xb('rem',x.id)}</div>`}).join(''):empty('یادآوری ثبت نشده. قبض و قسط‌هات رو اضافه کن.')),
 
-chore:()=>strip()+`<div class=fm><input id=t placeholder="کار خونه"><select id=c><option value=one>فقط ${DAYS.find(d=>d[0]==cd)[1]}</option><option value=all>هر روز</option></select>${alr()}<button onclick="add('chore')">افزودن</button></div>`+
+chore:()=>strip()+`<div class=fm><input id=t placeholder="کار خونه"><select id=c onchange="cmode()"><option value=one>فقط ${DAYS.find(d=>d[0]==cd)[1]}</option><option value=all>هر روز</option><option value=pick>چند روز انتخابی</option><option value=date>یک‌بار، در یک تاریخ</option></select>${chips()}${jpick(' id=cdate style="display:none"')}${alr()}<button onclick="add('chore')">افزودن</button></div>`+
 (S.chore.some(onDay)?S.chore.filter(onDay).sort((a,b)=>(done(a)?1:0)-(done(b)?1:0)).map(x=>{const d=isT()&&done(x);return `<div class="it ${d?'dn':''}"><label><input type=checkbox ${d?'checked':''} ${isT()?'':'disabled'} onchange="tg('chore','${x.id}')"><span>${esc(x.t)}<small>${sub(x)}${x.al?'، آلارم '+ft(x.tm):''}</small></span></label>${xb('chore',x.id)}</div>`}).join(''):empty('کاری ثبت نشده. مثلاً «آبیاری گل‌ها» هر هفته.'))
 };
 
 const LN=()=>window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.LocalNotifications;
 async function sched(r){const L=LN();if(!L)return;try{await L.requestPermissions();const ns=[];
-[...new Set([ed(r),0])].forEach((k,i)=>{const at=new Date(dt(r.w).getTime()-k*864e5);const[h,mi]=(r.al&&r.tm||'09:00').split(':').map(Number);at.setHours(h,mi,0,0);if(at>Date.now())ns.push({id:r.n+i,title:r.al?'آلارم همراه خانه':'همراه خانه',body:k?fa(k)+' روز دیگر: '+r.t:'امروز: '+r.t,...(r.al?{channelId:'alarm'}:{}),schedule:{at,allowWhileIdle:!!r.al}})});
+[...new Set([ed(r),0])].forEach((k,i)=>{const at=new Date(dt(r.w).getTime()-k*864e5);const[h,mi]=(r.al&&r.tm||'09:00').split(':').map(Number);at.setHours(h,mi,0,0);if(at>Date.now())ns.push({id:r.n+i,title:r.al?'آلارم همراه خانه':'همراه خانه',body:k?fa(k)+' روز دیگر: '+r.t:'امروز: '+r.t,...(r.al?{channelId:'alarm'}:{}),schedule:{at,allowWhileIdle:true}})});
 if(r.al)await mkch(L);
 if(ns.length)await L.schedule({notifications:ns})}catch(e){}}
 async function unsched(r){const L=LN();if(L)try{await L.cancel({notifications:[{id:r.n},{id:r.n+1}]})}catch(e){}}
 
-const jp=d=>{const p={};new Intl.DateTimeFormat('fa-IR-u-ca-persian-nu-latn',{year:'numeric',month:'numeric',day:'numeric'}).formatToParts(d).forEach(x=>p[x.type]=+x.value);return p};
+const jpf=new Intl.DateTimeFormat('fa-IR-u-ca-persian-nu-latn',{year:'numeric',month:'numeric',day:'numeric'});
+const jp=d=>{const p={};jpf.formatToParts(d).forEach(x=>p[x.type]=+x.value);return p};
 const jk=d=>{const p=cp(d);return p.year*100+p.month};
 async function monthly(){const L=LN();if(!L)return;try{
 await L.cancel({notifications:[1,2,3].map(i=>({id:2e9+i}))});
@@ -165,7 +179,7 @@ const nx=new Date(d.getTime()+864e5);if(cp(d).month==cp(nx).month)continue;
 const at=new Date(d);at.setHours(9,0,0,0);if(at<=Date.now())continue;
 const k=jk(nx),ch=S.rem.filter(x=>!x.ok&&x.c=='چک'&&jk(dt(x.w))==k).sort((a,b)=>a.w.localeCompare(b.w));
 if(!ch.length)continue;
-ns.push({id:2e9+ns.length+1,title:'چک‌های ماه بعد',body:'این چک‌ها ماه بعد سررسید دارن: '+ch.slice(0,5).map(x=>x.t+' ('+jd(x.w,{day:'numeric',month:'long'})+')').join('، ')+(ch.length>5?' و '+fa(ch.length-5)+' مورد دیگه':''),schedule:{at}})}
+ns.push({id:2e9+ns.length+1,title:'چک‌های ماه بعد',body:'این چک‌ها ماه بعد سررسید دارن: '+ch.slice(0,5).map(x=>x.t+' ('+jd(x.w,{day:'numeric',month:'long'})+')').join('، ')+(ch.length>5?' و '+fa(ch.length-5)+' مورد دیگه':''),schedule:{at,allowWhileIdle:true}})}
 if(ns.length){await L.requestPermissions();await L.schedule({notifications:ns})}}catch(e){}}
 const ft=s=>s.replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
 const alr=()=>`<div class=jd><label class=ck><input type=checkbox id=al><span>آلارم</span></label><input id=tn onfocus="this.select()" onclick="this.select()" oninput="lim(this,59)" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="دقیقه" value="00" aria-label="دقیقه"><b>:</b><input id=th onfocus="this.select()" onclick="this.select()" oninput="lim(this,23);if(this.value.length>=2)g('tn').focus()" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="ساعت" value="09" aria-label="ساعت"></div>`;
@@ -174,27 +188,147 @@ async function ssched(x){const L=LN();if(!L||!x.al)return;try{const at=dt(x.w),[
 await L.schedule({notifications:[{id:x.n,title:'آلارم خرید',body:x.t,channelId:'alarm',schedule:{at,allowWhileIdle:true}}]})}catch(e){}}
 async function cunsched(c){const L=LN();if(L&&c.n)try{await L.cancel({notifications:[0,1,2,3,4,5,6].map(d=>({id:c.n+d}))})}catch(e){}}
 async function csched(c){await cunsched(c);const L=LN();if(!L||!c.al||!c.n)return;try{await L.requestPermissions();await mkch(L);const[h,m]=(c.tm||'09:00').split(':').map(Number);
-await L.schedule({notifications:(c.ds||[0,1,2,3,4,5,6]).map(d=>({id:c.n+d,title:'آلارم همراه خانه',body:c.t,channelId:'alarm',schedule:{on:{weekday:d+1,hour:h,minute:m},allowWhileIdle:true}}))})}catch(e){}}
+const at=c.w?dt(c.w):null;if(at)at.setHours(h,m,0,0);
+const ns=at?(at>Date.now()?[{id:c.n,title:'آلارم همراه خانه',body:c.t,channelId:'alarm',schedule:{at,allowWhileIdle:true}}]:[]):(c.ds||[0,1,2,3,4,5,6]).map(d=>({id:c.n+d,title:'آلارم همراه خانه',body:c.t,channelId:'alarm',schedule:{on:{weekday:d+1,hour:h,minute:m},allowWhileIdle:true}}));
+if(ns.length)await L.schedule({notifications:ns})}catch(e){}}
+const hpf=new Intl.DateTimeFormat('en-u-ca-islamic-umalqura-nu-latn',{month:'numeric',day:'numeric'});
+const hp=d=>{const p={};hpf.formatToParts(d).forEach(x=>p[x.type]=+x.value);return p};
+const JO={},HO={},GO={};
+const fill=(o,a)=>a.forEach(([m,d,t,h])=>{(o[m+'-'+d]=o[m+'-'+d]||[]).push({t,h:!!h})});
+fill(JO,[[1,1,'عید نوروز',1],[1,2,'تعطیلات نوروز',1],[1,3,'تعطیلات نوروز',1],[1,4,'تعطیلات نوروز',1],[1,12,'روز جمهوری اسلامی',1],[1,13,'روز طبیعت (سیزده‌بدر)',1],[1,25,'بزرگداشت فردوسی'],
+[2,1,'بزرگداشت سعدی'],[2,10,'روز ملی خلیج فارس'],[2,12,'روز معلم'],[2,25,'بزرگداشت عطار نیشابوری'],[2,28,'بزرگداشت خیام'],
+[3,3,'فتح خرمشهر'],[3,14,'رحلت امام خمینی',1],[3,15,'قیام ۱۵ خرداد',1],
+[4,1,'روز اصناف'],[4,7,'روز قوه قضاییه'],
+[5,14,'سالروز مشروطیت'],[5,26,'بازگشت آزادگان'],[5,28,'کودتای ۲۸ مرداد'],
+[6,17,'قیام ۱۷ شهریور'],[6,31,'آغاز هفته دفاع مقدس'],
+[7,1,'آغاز سال تحصیلی'],[7,20,'بزرگداشت حافظ'],
+[8,13,'روز دانش‌آموز'],
+[9,16,'روز دانشجو'],[9,30,'شب یلدا'],
+[10,9,'حماسه ۹ دی'],
+[11,12,'بازگشت امام خمینی'],[11,19,'روز نیروی هوایی'],[11,22,'پیروزی انقلاب اسلامی',1],
+[12,5,'روز مهندس'],[12,15,'روز درختکاری'],[12,29,'ملی شدن صنعت نفت',1]]);
+fill(HO,[[1,1,'آغاز ماه محرم'],[1,9,'تاسوعای حسینی',1],[1,10,'عاشورای حسینی',1],
+[2,20,'اربعین حسینی',1],[2,28,'رحلت پیامبر و شهادت امام حسن',1],[2,'L','شهادت امام رضا',1],
+[3,17,'میلاد پیامبر و امام صادق',1],
+[6,3,'شهادت حضرت فاطمه',1],
+[7,13,'ولادت امام علی',1],[7,27,'مبعث پیامبر',1],
+[8,3,'ولادت امام حسین'],[8,4,'ولادت حضرت عباس'],[8,5,'ولادت امام سجاد'],[8,15,'ولادت امام زمان',1],
+[9,1,'آغاز ماه رمضان'],[9,15,'ولادت امام حسن'],[9,21,'شهادت امام علی',1],
+[10,1,'عید فطر',1],[10,2,'تعطیل به‌مناسبت عید فطر',1],[10,25,'شهادت امام صادق',1],
+[12,10,'عید قربان',1],[12,18,'عید غدیر خم',1]]);
+fill(GO,[[1,1,'آغاز سال میلادی'],[3,8,'روز جهانی زن'],[5,1,'روز جهانی کارگر'],[12,25,'کریسمس']]);
+function occ(iso){const d=dt(iso),a=jp(d),h=hp(d),n=hp(new Date(d.getTime()+864e5));
+return [...(JO[a.month+'-'+a.day]||[]),...(HO[h.month+'-'+h.day]||[]),...(h.month!=n.month?HO[h.month+'-L']||[]:[]),...(GO[(d.getMonth()+1)+'-'+d.getDate()]||[])]}
+const addd=(iso,k)=>{const t=dt(iso);t.setDate(t.getDate()+k);return new Date(t.getTime()-t.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const citems=iso=>[...S.rem.filter(x=>x.w==iso).map(x=>[x.t,x.c]),...S.shop.filter(x=>x.w==iso).map(x=>[x.t,'خرید']),...S.chore.filter(x=>x.w==iso).map(x=>[x.t,'کار']),...pcal(iso)];
+let cv=null,sdt=null;
+const WD=['ش','ی','د','س','چ','پ','ج'];
+V.cal=()=>{const p=cp(dt(T));if(!cv)cv={y:p.year,m:p.month};if(!sdt)sdt=T;
+const y=cv.y,m=cv.m,n=dimc(y,m),f=toIso(y,m,1),off=(dt(f).getDay()+1)%7,nm=(S.cal=='g'?GN:MN)[m-1];
+let cells='',list='';for(let i=0;i<off;i++)cells+='<i></i>';
+for(let d=1;d<=n;d++){const iso=addd(f,d-1),o=occ(iso),hol=dt(iso).getDay()==5||o.some(e=>e.h);
+cells+=`<button class="${hol?'hl ':''}${iso==T?'td ':''}${iso==sdt?'sl':''}" onclick="pickd('${iso}')">${fa(d)}${o.length||citems(iso).length?'<u></u>':''}</button>`;
+o.forEach(e=>list+=`<div class=it><span>${fa(d)} ${nm}<small>${e.t}</small></span>${e.h?'<em class=late>تعطیل</em>':''}</div>`)}
+const o=occ(sdt),ci=citems(sdt),L=(c,o2)=>dt(sdt).toLocaleDateString('fa-IR-u-ca-'+c,o2),fl={day:'numeric',month:'long',year:'numeric'};
+return `<div class=cn><button onclick="cnav(-1)">ماه قبل</button><b>${nm} ${fy(y)}</b><button onclick="cnav(1)">ماه بعد</button></div>`+
+`<div class=cg>${WD.map(x=>`<b>${x}</b>`).join('')}${cells}</div>`+
+`<div class="it dt"><span>${L('persian',{weekday:'long'})}، ${L('persian',fl)}<small>${L('gregory',fl)}</small><small>${L('islamic-umalqura',fl)}</small></span><button class=gh2 onclick="cv=null;sdt=T;render()">امروز</button></div>`+
+o.map(e=>`<div class=it><span>${e.t}</span>${e.h?'<em class=late>تعطیل</em>':''}</div>`).join('')+
+ci.map(e=>`<div class=it><span>${esc(e[0])}<small>${esc(e[1])}</small></span></div>`).join('')+
+`<p class=lb>مناسبت‌های ${nm}</p>`+(list||empty('مناسبتی ثبت نشده.'))+
+`<p class=lb>مناسبت‌های قمری تقریبی هستن و ممکنه ۱ تا ۲ روز با اعلام رسمی فرق داشته باشن.</p>`};
+function pickd(i){sdt=i;render()}
+function cnav(k){cv.m+=k;if(cv.m>12){cv.m=1;cv.y++}if(cv.m<1){cv.m=12;cv.y--}render()}
+// ===== حیوان خانگی =====
+if(S.pets==null)S.pets=[];
+let pv=null,ps='feed';
+const PT=['سگ','گربه','پرنده','ماهی','خرگوش','همستر','سایر'];
+const HK=['واکسن','ضدانگل داخلی','ضدکک و کنه','دامپزشک','دارو','سایر'];
+const IV=[[0,'تکرار ندارد'],['w1','تکرار: هر ۱ هفته'],[1,'تکرار: هر ۱ ماه'],[3,'تکرار: هر ۳ ماه'],[6,'تکرار: هر ۶ ماه'],[12,'تکرار: هر ۱ سال'],[24,'تکرار: هر ۲ سال'],[36,'تکرار: هر ۳ سال']];
+const PTB=[['feed','غذا'],['hl','سلامت'],['care','مراقبت'],['wt','وزن'],['info','اطلاعات']];
+const pet=()=>S.pets.find(p=>p.id==pv);
+const pn=()=>Math.floor(Math.random()*1e9);
+const nw=s=>parseFloat(String(s).replace(/[۰-۹]/g,d=>d.charCodeAt(0)-1776).replace(/[٫,]/g,'.'))||0;
+const addm=(iso,k)=>{const t=dt(iso),d=t.getDate();t.setDate(1);t.setMonth(t.getMonth()+k);t.setDate(Math.min(d,new Date(t.getFullYear(),t.getMonth()+1,0).getDate()));return new Date(t.getTime()-t.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const nxt=(w,iv)=>!iv?'':String(iv)[0]=='w'?addd(w,7*parseInt(String(iv).slice(1))):addm(w,+iv);
+const age=b=>{if(!b)return'';const a=dt(b),n=dt(T);let m=(n.getFullYear()-a.getFullYear())*12+n.getMonth()-a.getMonth();if(n.getDate()<a.getDate())m--;if(m<0)return'';const y=Math.floor(m/12),r=m%12;return(y?fa(y)+' سال':'')+(y&&r?' و ':'')+(r||!y?fa(r)+' ماه':'')};
+const lab=iso=>{const n=diff(iso,T);return n<0?fa(-n)+' روز گذشته':n==0?'امروز':fa(n)+' روز مانده'};
+const fdt=iso=>jd(iso,{day:'numeric',month:'long',year:'numeric'});
+const pnext=p=>{const c=[...p.hl.filter(h=>h.nx).map(h=>[h.nx,h.t]),...p.care.filter(x=>x.l).map(x=>[addd(x.l,x.iv),x.t])].sort((a,b)=>a[0].localeCompare(b[0]))[0];return c?c[1]+': '+lab(c[0]):''};
+const pcal=iso=>S.pets.flatMap(p=>[...p.hl.filter(h=>h.nx==iso).map(h=>[p.nm+'، '+h.t,h.k]),...p.care.filter(c=>c.l&&addd(c.l,c.iv)==iso).map(c=>[p.nm+'، '+c.t,'مراقبت'])]);
+const hsch=(p,h)=>h.nx&&sched({n:h.n,w:h.nx,e:h.e,al:h.al,tm:h.tm,t:p.nm+'، '+h.t});
+const csch=(p,c)=>{unsched(c);return c.l&&sched({n:c.n,w:addd(c.l,c.iv),e:0,al:c.al,tm:c.tm,t:p.nm+'، '+c.t})};
+async function fsched(p,f){const L=LN();if(!L)return;try{await L.cancel({notifications:[{id:f.n}]});const[h,m]=f.tm.split(':').map(Number);await L.requestPermissions();if(f.al)await mkch(L);
+await L.schedule({notifications:[{id:f.n,title:'وعده غذایی '+p.nm,body:f.food||'وقت غذاست',...(f.al?{channelId:'alarm'}:{}),schedule:{on:{hour:h,minute:m},allowWhileIdle:true}}]})}catch(e){}}
+async function fcancel(f){const L=LN();if(L)try{await L.cancel({notifications:[{id:f.n}]})}catch(e){}}
+const xp=(k,id)=>`<button class=x aria-label="حذف" onclick="rmp('${k}','${id}')">×</button>`;
+const petList=()=>`<div class=fm><input id=t placeholder="اسم حیوان خانگی"><select id=c>${opts(PT)}</select><button onclick="addPet()">افزودن حیوان</button></div>`+
+(S.pets.length?S.pets.map(p=>{const nx=pnext(p);return `<div class=it onclick="pv='${p.id}';ps='feed';render()" style="cursor:pointer"><span>${esc(p.nm)}<small>${p.ty}${p.bd?'، '+age(p.bd):''}${nx?'، '+esc(nx):''}</small></span><button class=x aria-label="حذف" onclick="event.stopPropagation();askDel('${p.id}')">${dpid==p.id?'حذف؟':'×'}</button></div>`}).join(''):empty('هنوز حیوانی ثبت نشده. اسمش رو بنویس و اضافه کن.'));
+const PV={
+feed:p=>`<div class=fm><input id=food placeholder="نوع غذا (اختیاری)">${alr()}<button onclick="addFeed()">افزودن وعده غذایی</button></div>`+
+(p.feeds.length?p.feeds.slice().sort((a,b)=>a.tm.localeCompare(b.tm)).map(f=>{const d=p.fed[f.id]==T;return `<div class="it ${d?'dn':''}"><label><input type=checkbox ${d?'checked':''} onchange="tfed('${f.id}')"><span>${ft(f.tm)}${f.food?'، '+esc(f.food):''}<small>${f.al?'آلارم':'اعلان'} هر روز${d?'، امروز داده شد':''}</small></span></label>${xp('feeds',f.id)}</div>`}).join(''):empty('وعده غذایی ثبت نشده. ساعت غذا دادن رو اضافه کن.')),
+hl:p=>`<div class=fm><input id=t placeholder="نام، مثلاً واکسن هاری"><select id=c>${opts(HK)}</select><p class=lb style="flex:1 1 100%;margin:2px 4px">تاریخ انجام:</p>${jpick()}<select id=iv>${IV.map(o=>`<option value=${o[0]}${o[0]==12?' selected':''}>${o[1]}</option>`).join('')}</select><select id=e>${ED.map(o=>`<option value=${o[0]}${o[0]==7?' selected':''}>${o[1]}</option>`).join('')}</select>${alr()}<button onclick="addHl()">ثبت</button></div>`+
+(p.hl.length?p.hl.slice().sort((a,b)=>b.w.localeCompare(a.w)).map(h=>`<div class=it><span>${esc(h.t)}<small>${h.k}، ${fdt(h.w)}${h.nx?'، بعدی '+fdt(h.nx)+' ('+lab(h.nx)+')':''}</small></span>${h.nx?`<button class=gh2 onclick="hdone('${h.id}')">انجام شد</button>`:''}${xp('hl',h.id)}</div>`).join(''):empty('هنوز واکسن یا سابقه‌ای ثبت نشده.')),
+care:p=>`<div class=fm><input id=t list=cl placeholder="کار مراقبتی، مثلاً حمام"><datalist id=cl>${['حمام','اصلاح ناخن','مسواک','تعویض خاک گربه','تعویض آب آکواریوم','تمیز کردن قفس','برس کشیدن'].map(x=>`<option>${x}</option>`).join('')}</datalist><input id=iv type=text inputmode=numeric placeholder="هر چند روز یک بار؟ (مثلاً ۷)">${alr()}<button onclick="addCare()">افزودن</button></div>`+
+(p.care.length?p.care.slice().sort((a,b)=>addd(a.l,a.iv).localeCompare(addd(b.l,b.iv))).map(c=>{const nx=addd(c.l,c.iv);return `<div class=it><span>${esc(c.t)}<small>هر ${fa(c.iv)} روز، بعدی ${fdt(nx)} (${lab(nx)})</small></span><button class=gh2 onclick="cdn('${c.id}')">انجام شد</button>${xp('care',c.id)}</div>`}).join(''):empty('کار مراقبتی ثبت نشده.')),
+wt:p=>{const a=p.wt.slice().sort((x,y)=>x.w.localeCompare(y.w)),r=a.map((x,i)=>{const d=i?Math.round((x.v-a[i-1].v)*10)/10:0;return `<div class=it><span>${fa(x.v)} کیلوگرم<small>${fdt(x.w)}${d?'، '+(d>0?'+':'-')+fa(Math.abs(d)):''}</small></span>${xp('wt',x.id)}</div>`}).reverse().join('');
+return `<div class="fm s"><input id=a type=text inputmode=decimal placeholder="وزن امروز به کیلوگرم"><button onclick="addWt()">ثبت وزن</button></div>`+(r||empty('وزنی ثبت نشده.'))},
+info:p=>`<div class=fm><input id=nm placeholder="اسم حیوان" value="${esc(p.nm)}" style="flex:1 1 100%"><input id=br placeholder="نژاد" value="${esc(p.br||'')}"><input id=vt placeholder="دامپزشک و تلفن" value="${esc(p.vt||'')}"><input id=nt placeholder="یادداشت: میکروچیپ، حساسیت‌ها و ..." value="${esc(p.nt||'')}" style="flex:1 1 100%"><select id=hb style="flex:1 1 100%" onchange="g('bdp').style.display=this.value=='1'?'flex':'none'"><option value=0${p.bd?'':' selected'}>تاریخ تولد نامشخص</option><option value=1${p.bd?' selected':''}>تاریخ تولد مشخصه</option></select>${jpick(' id=bdp'+(p.bd?'':' style="display:none"'),p.bd||T,Array.from({length:31},(_,i)=>i-30))}<button onclick="saveInfo()">ذخیره اطلاعات</button></div><button class=gh onclick="askDel('${p.id}')">${dpid==p.id?'مطمئنی؟ دوباره بزن تا حذف بشه':'حذف این حیوان'}</button>`
+};
+V.pet=()=>{if(!pv)return petList();const p=pet();if(!p){pv=null;return petList()}
+return `<div class=cn><button onclick="pv=null;render()">همه حیوان‌ها</button><b>${esc(p.nm)}</b><em>${p.ty}${p.bd?'، '+age(p.bd):''}</em></div><div class=wk>${PTB.map(([k,l])=>`<button class="${k==ps?'on':''}" onclick="ps='${k}';render()">${l}</button>`).join('')}</div>`+PV[ps](p)};
+function addPet(){const t=val('t');if(!t)return g('t').focus();const p={id:uid(),nm:t,ty:val('c'),bd:'',br:'',vt:'',nt:'',feeds:[],hl:[],care:[],wt:[],fed:{}};S.pets.push(p);pv=p.id;ps='feed';save();render()}
+function addFeed(){const p=pet(),f={id:uid(),tm:gtm(),food:val('food'),al:g('al').checked?1:0,n:pn()};p.feeds.push(f);fsched(p,f);save();render()}
+function tfed(id){const p=pet();p.fed[id]=p.fed[id]==T?'':T;save();render()}
+function addHl(){const p=pet(),t=val('t');if(!t)return g('t').focus();const k=val('c'),w=toIso(+val('wy'),+val('wm'),+val('wd')),iv=(x=>x[0]=='w'?x:+x)(val('iv'));
+p.hl.forEach(h=>{if(h.k==k&&h.t==t&&h.nx){unsched(h);h.nx=''}});
+const h={id:uid(),t,k,w,iv,nx:nxt(w,iv),e:+val('e'),al:g('al').checked?1:0,tm:gtm(),n:pn()};p.hl.push(h);hsch(p,h);save();render()}
+function hdone(id){const p=pet(),o=p.hl.find(h=>h.id==id);unsched(o);o.nx='';const h={id:uid(),t:o.t,k:o.k,w:T,iv:o.iv,nx:nxt(T,o.iv),e:o.e,al:o.al,tm:o.tm,n:pn()};p.hl.push(h);hsch(p,h);save();render()}
+function addCare(){const p=pet(),t=val('t'),iv=num(val('iv'));if(!t)return g('t').focus();if(!iv)return g('iv').focus();const c={id:uid(),t,iv,l:T,al:g('al').checked?1:0,tm:gtm(),n:pn()};p.care.push(c);csch(p,c);save();render()}
+function cdn(id){const p=pet(),c=p.care.find(x=>x.id==id);c.l=T;csch(p,c);save();render()}
+function addWt(){const v=nw(val('a'));if(!v)return g('a').focus();pet().wt.push({id:uid(),w:T,v});save();render()}
+function saveInfo(){const p=pet();if(val('nm'))p.nm=val('nm');p.br=val('br');p.vt=val('vt');p.nt=val('nt');p.bd=val('hb')=='1'?toIso(+val('wy'),+val('wm'),+val('wd')):'';save();render()}
+function rmp(k,id){const p=pet(),x=p[k].find(o=>o.id==id);if(k=='feeds')fcancel(x);else if(k!='wt')unsched(x);p[k]=p[k].filter(o=>o.id!=id);save();render()}
+let dpid=null;
+function askDel(id){if(dpid==id)return delPet(id);dpid=id;render();setTimeout(()=>{if(dpid==id){dpid=null;if(tab=='pet')render()}},4000)}
+function delPet(id){const p=S.pets.find(x=>x.id==id);if(!p)return;p.feeds.forEach(fcancel);p.hl.forEach(unsched);p.care.forEach(unsched);S.pets=S.pets.filter(x=>x.id!=id);dpid=null;if(pv==id)pv=null;save();render()}
 const find=(k,id)=>S[k].find(x=>x.id==id);
 function tg(k,id){const x=find(k,id);
 if(k=='chore')x.l=done(x)?'':T;else{x.ok=x.ok?0:1;if(k=='rem')x.ok?unsched(x):sched(x);if(k=='shop'&&x.n)x.ok?unsched(x):ssched(x)}
 save();render()}
 function rm(k,id){if(k=='rem')unsched(find(k,id));if(k=='chore')cunsched(find(k,id));if(k=='shop'){const x=find(k,id);if(x&&x.n)unsched(x)}S[k]=S[k].filter(x=>x.id!=id);save();render()}
-function tcal(){S.cal=S.cal=='g'?'j':'g';save();render()}
+function cmode(){const v=g('c').value;g('cdays').style.display=v=='pick'?'flex':'none';g('cdate').style.display=v=='date'?'flex':'none'}
+function tcal(){S.cal=S.cal=='g'?'j':'g';cv=null;save();render()}
 function tcm(){S.cm=S.cm?0:1;save();render()}
 function clr(){S.shop=S.shop.filter(x=>!x.ok);save();render()}
 function add(k){const t=val('t');
 if(k=='exp'){const a=num(val('a'));if(!a)return g('a').focus();S.exp.push({id:uid(),a,c:val('c'),t,w:T})}
 else{if(!t)return g('t').focus();
 if(k=='shop'){const x={id:uid(),t,ok:0,al:g('al').checked?1:0,tm:gtm(),w:toIso(+val('wy'),+val('wm'),+val('wd')),n:Math.floor(Math.random()*1e9)};S.shop.push(x);ssched(x)}
-if(k=='chore'){const ds=val('c')=='all'?[0,1,2,3,4,5,6]:[cd];const c={id:uid(),t,r:1,ds,l:'',al:g('al').checked?1:0,tm:gtm(),n:Math.floor(Math.random()*1e9)};S.chore.push(c);csched(c)}
+if(k=='chore'){const m=val('c');let ds=m=='all'?[0,1,2,3,4,5,6]:m=='pick'?[...document.querySelectorAll('.ds input:checked')].map(i=>+i.value):[cd],w='';if(!ds.length)ds=[cd];if(m=='date'){w=toIso(+val('wy'),+val('wm'),+val('wd'));ds=[dt(w).getDay()]}const c={id:uid(),t,r:m=='date'?0:1,ds,w,l:'',al:g('al').checked?1:0,tm:gtm(),n:Math.floor(Math.random()*1e9)};S.chore.push(c);csched(c)}
 if(k=='rem'){const r={id:uid(),t,w:toIso(+val('wy'),+val('wm'),+val('wd')),m:num(val('m')),c:val('c'),e:+val('e'),al:g('al').checked?1:0,tm:gtm(),ok:0,n:Math.floor(Math.random()*1e9)};S.rem.push(r);sched(r)}}
 save();render()}
 function go(b){tab=b.dataset.t;render()}
+const TT={shop:'خرید',exp:'هزینه',rem:'یادآور',chore:'کارها',cal:'تقویم',pet:'حیوان خانگی'};
+const tsum=k=>{
+if(k=='shop'){const n=S.shop.filter(x=>!x.ok).length;return n?fa(n)+' قلم مونده':'لیست خالیه'}
+if(k=='exp'){const mk=jd(T,MK),t=S.exp.filter(e=>jd(e.w,MK)==mk).reduce((s,e)=>s+e.a,0);return t?'این ماه: '+fa(t):'ثبت هزینه'}
+if(k=='rem'){const n=S.rem.filter(x=>!x.ok).length;return n?fa(n)+' یادآور فعال':'بدون یادآور'}
+if(k=='chore'){const w=new Date().getDay(),n=S.chore.filter(x=>(!x.ds||x.ds.includes(w))&&(!x.w||diff(x.w,T)<=6)&&!done(x)).length;return n?fa(n)+' کار برای امروز':'کاری برای امروز نیست'}
+if(k=='cal'){const o=occ(T);return o.length?o[0].t:'روزها و مناسبت‌ها'}
+return S.pets.length?fa(S.pets.length)+' حیوان':'حیوان خانگی من'};
+const home=()=>`<div class=hm>${Object.keys(TT).map(k=>`<button onclick="openp('${k}')"><b>${TT[k]}</b><small>${esc(tsum(k))}</small></button>`).join('')}</div>`;
+function openp(k){tab=k;pv=null;try{history.pushState({k},'')}catch(e){}render();try{scrollTo(0,0)}catch(e){}}
+function back(){if(tab=='pet'&&pv){pv=null;render();return}if(history.state&&history.state.k)history.back();else{tab='home';render()}}
+function toast(m){const d=document.createElement('div');d.className='ts';d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),2000)}
+let bt=0;
+const AP=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.App;
+if(AP&&AP.addListener)AP.addListener('backButton',()=>{if(tab!='home'){back();return}const n=Date.now();if(n-bt<2000){AP.exitApp();return}bt=n;toast('برای خروج، یک بار دیگه برگشت رو بزن')});
+window.addEventListener('popstate',()=>{if(tab=='pet'&&pv){pv=null;try{history.pushState({k:'pet'},'')}catch(e){}}else tab='home';render()});
 function render(){T=iso();
 const due=S.rem.filter(x=>!x.ok&&diff(x.w,T)<=ed(x)).length;
-g('app').innerHTML=`<header><div class=hr><h1>همراه خانه</h1><button class=cb onclick="tcal()">${S.cal=='g'?'تقویم میلادی':'تقویم شمسی'}</button></div><p>${jd(T,{weekday:'long'})}، ${jd(T,{day:'numeric',month:'long',year:'numeric'})}</p>${due?`<p class=al>${fa(due)} یادآور در انتظار</p>`:''}</header><main>${V[tab]()}</main>`;
-document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.t==tab))}
+g('app').innerHTML=tab=='home'?`<header><div class=hr><h1>همراه خانه</h1><button class=cb onclick="tcal()">${S.cal=='g'?'تقویم میلادی':'تقویم شمسی'}</button></div><p>${jd(T,{weekday:'long'})}، ${jd(T,{day:'numeric',month:'long',year:'numeric'})}</p>${due?`<p class=al>${fa(due)} یادآور در انتظار</p>`:''}</header><main>${home()}</main>`:
+`<header><div class=hr><button class=cb onclick="back()">‹ منو</button><h1 style="font-size:22px">${TT[tab]}</h1><span style="width:64px"></span></div></header><main>${V[tab]()}</main>`}
 document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.tagName=='INPUT'){const f=e.target.closest('.fm');f&&f.querySelector('button').click()}});
 render();monthly();
 </script>
