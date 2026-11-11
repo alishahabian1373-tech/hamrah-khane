@@ -40,6 +40,46 @@ nav button{font-size:14px}
 .hm b{font-size:21px}
 .hm small{color:var(--mu);font-size:13px;font-weight:500;line-height:1.5}
 .ts{position:fixed;inset:auto 16px calc(24px + env(safe-area-inset-bottom,0px));background:var(--tx);color:var(--bg);padding:12px 16px;border-radius:14px;text-align:center;z-index:9;font-size:14px}
+.pg{height:8px;border-radius:4px;background:rgba(0,0,0,.22);margin-top:10px}
+.pg i{display:block;height:100%;border-radius:4px;background:var(--on)}
+.g75{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin:14px 0}
+.g75 i{aspect-ratio:1;border-radius:8px;background:var(--cd);font-size:11px;font-style:normal;display:flex;align-items:center;justify-content:center;color:var(--mu)}
+.g75 .ok{background:var(--ac);color:var(--on)}
+.g75 .bad{background:var(--rd);color:#fff;opacity:.85}
+.g75 .td{box-shadow:inset 0 0 0 2px var(--wn);color:var(--tx)}
+.fb{display:flex;align-items:center;justify-content:center;background:var(--cd);color:var(--ac);border:1.5px solid var(--ln);border-radius:99px;padding:10px 12px;font-weight:700;cursor:pointer;text-align:center}
+.fb input{display:none}
+textarea{width:100%;resize:vertical}
+.ph1{width:100%;border-radius:14px;margin-bottom:8px}
+.cmp{display:flex;gap:8px}.cmp div{flex:1;text-align:center}.cmp img{width:100%;border-radius:12px}.cmp small{color:var(--mu);font-size:13px}
+.pg3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.pg3 div{position:relative;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:var(--cd)}
+.pg3 img{width:100%;height:100%;object-fit:cover}
+.pg3 b{position:absolute;bottom:4px;right:8px;font-size:13px;color:#fff;text-shadow:0 1px 3px #000}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.88);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:20;padding:16px}
+.ov img{max-width:100%;max-height:70vh;border-radius:12px}
+.ovb{display:flex;gap:10px}
+.pb{height:6px;border-radius:3px;background:var(--ln);margin-top:6px}
+.pb i{display:block;height:100%;border-radius:3px;background:var(--ac);transition:width .5s}
+.pg i{transition:width .5s}
+.bars{display:flex;gap:4px;align-items:flex-end;height:96px;margin:10px 0 0}
+.bars div{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:2px}
+.bars i{display:block;width:100%;border-radius:6px 6px 2px 2px;background:var(--ac);transition:height .5s}
+.bars small{font-size:10px;color:var(--mu);line-height:1}
+.g75.w7{grid-template-columns:repeat(7,1fr)}
+.g75 i{cursor:pointer}
+.g75 .part{background:var(--wn);color:#1d1d1d}
+.g75 .sl{box-shadow:inset 0 0 0 2px var(--tx)}
+button:active{transform:scale(.97)}
+.qb{display:flex;align-items:center;gap:6px}
+.qb button{padding:4px 12px}
+.tg{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;background:var(--ln);color:var(--tx);margin:6px 6px 0 0}
+.tg.w{background:var(--rd);color:#fff}
+.kf{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.kf button{padding:6px 12px;font-size:13px;background:var(--cd);color:var(--tx);border:1.5px solid var(--ln)}
+.kf .on{background:var(--ac);color:var(--on);border-color:var(--ac)}
+.kth{width:44px;height:44px;object-fit:cover;border-radius:10px;margin-inline-end:8px;vertical-align:middle}
+.bigb{width:100%;padding:18px;font-size:18px;border-radius:20px;margin:10px 0}
 .lb{color:var(--mu);font-size:13px;margin:16px 4px 8px}
 .sdw .jd{display:flex;gap:6px}
 .jd input[type=text]{flex:1;min-width:0;text-align:center}
@@ -56,8 +96,8 @@ nav button{font-size:14px}
 .ds span{display:block;padding:6px 12px;border-radius:99px;border:1.5px solid var(--ln);background:var(--cd);font-size:14px}
 .ds input:checked+span{background:var(--ac);color:var(--on);border-color:var(--ac)}
 .ds input:focus-visible+span{outline:2px solid var(--ac);outline-offset:1px}
-input,select{font:inherit;color:var(--tx);background:var(--cd);border:1.5px solid var(--ln);border-radius:10px;padding:10px 12px}
-input:focus,select:focus,button:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
+input,select,textarea{font:inherit;color:var(--tx);background:var(--cd);border:1.5px solid var(--ln);border-radius:10px;padding:10px 12px}
+input:focus,select:focus,textarea:focus,button:focus-visible{outline:2px solid var(--ac);outline-offset:1px}
 button{font:inherit;border:0;cursor:pointer;color:var(--on);background:var(--ac);border-radius:99px;padding:10px 20px;font-weight:700}
 .gh{background:none;color:var(--mu);border:1.5px solid var(--ln);display:block;margin:14px auto}
 .it{display:flex;align-items:center;gap:8px;background:var(--cd);border-radius:14px;padding:10px 14px;margin-bottom:8px}
@@ -84,9 +124,13 @@ nav .on{color:var(--ac);border-top-color:var(--ac)}
 <body>
 <div id="app"></div>
 <script>
+window.addEventListener('error',function(e){try{var d=document.createElement('div');d.style.cssText='position:fixed;top:0;left:0;right:0;z-index:99;background:#c23b32;color:#fff;padding:10px;font:13px/1.5 sans-serif;direction:ltr;text-align:left';d.textContent='Error: '+e.message+' (line '+e.lineno+')';(document.body||document.documentElement).appendChild(d)}catch(_){}});
+</script>
+<script>
 const g=id=>document.getElementById(id);
 let S;try{S=JSON.parse(localStorage.getItem('hk'))}catch(e){}
 S=S||{shop:[],exp:[],rem:[],chore:[]};
+['shop','exp','rem','chore'].forEach(k=>{if(!Array.isArray(S[k]))S[k]=[]});
 if(S.cm==null)S.cm=1;
 if(S.cal==null)S.cal='j';
 let tab='home',T;
@@ -182,7 +226,7 @@ if(!ch.length)continue;
 ns.push({id:2e9+ns.length+1,title:'چک‌های ماه بعد',body:'این چک‌ها ماه بعد سررسید دارن: '+ch.slice(0,5).map(x=>x.t+' ('+jd(x.w,{day:'numeric',month:'long'})+')').join('، ')+(ch.length>5?' و '+fa(ch.length-5)+' مورد دیگه':''),schedule:{at,allowWhileIdle:true}})}
 if(ns.length){await L.requestPermissions();await L.schedule({notifications:ns})}}catch(e){}}
 const ft=s=>s.replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
-const alr=()=>`<div class=jd><label class=ck><input type=checkbox id=al><span>آلارم</span></label><input id=tn onfocus="this.select()" onclick="this.select()" oninput="lim(this,59)" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="دقیقه" value="00" aria-label="دقیقه"><b>:</b><input id=th onfocus="this.select()" onclick="this.select()" oninput="lim(this,23);if(this.value.length>=2)g('tn').focus()" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="ساعت" value="09" aria-label="ساعت"></div>`;
+const alr=(l='آلارم')=>`<div class=jd><label class=ck><input type=checkbox id=al><span>${l}</span></label><input id=tn onfocus="this.select()" onclick="this.select()" oninput="lim(this,59)" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="دقیقه" value="00" aria-label="دقیقه"><b>:</b><input id=th onfocus="this.select()" onclick="this.select()" oninput="lim(this,23);if(this.value.length>=2)g('tn').focus()" onblur="this.value=this.value.padStart(2,'0')" type=text inputmode=numeric maxlength=2 dir=ltr placeholder="ساعت" value="09" aria-label="ساعت"></div>`;
 const mkch=L=>L.createChannel({id:'alarm',name:'آلارم',description:'آلارم یادآورها و کارها',importance:5,visibility:1,vibration:true}).catch(()=>{});
 async function ssched(x){const L=LN();if(!L||!x.al)return;try{const at=dt(x.w),[h,m]=x.tm.split(':').map(Number);at.setHours(h,m,0,0);if(at<=Date.now())return;await L.requestPermissions();await mkch(L);
 await L.schedule({notifications:[{id:x.n,title:'آلارم خرید',body:x.t,channelId:'alarm',schedule:{at,allowWhileIdle:true}}]})}catch(e){}}
@@ -240,7 +284,7 @@ ci.map(e=>`<div class=it><span>${esc(e[0])}<small>${esc(e[1])}</small></span></d
 function pickd(i){sdt=i;render()}
 function cnav(k){cv.m+=k;if(cv.m>12){cv.m=1;cv.y++}if(cv.m<1){cv.m=12;cv.y--}render()}
 // ===== حیوان خانگی =====
-if(S.pets==null)S.pets=[];
+if(!Array.isArray(S.pets))S.pets=[];S.pets=S.pets.filter(p=>p&&p.id&&['feeds','hl','care','wt'].every(k=>Array.isArray(p[k]))&&p.fed&&typeof p.fed=='object');
 let pv=null,ps='feed';
 const PT=['سگ','گربه','پرنده','ماهی','خرگوش','همستر','سایر'];
 const HK=['واکسن','ضدانگل داخلی','ضدکک و کنه','دامپزشک','دارو','سایر'];
@@ -292,6 +336,344 @@ function rmp(k,id){const p=pet(),x=p[k].find(o=>o.id==id);if(k=='feeds')fcancel(
 let dpid=null;
 function askDel(id){if(dpid==id)return delPet(id);dpid=id;render();setTimeout(()=>{if(dpid==id){dpid=null;if(tab=='pet')render()}},4000)}
 function delPet(id){const p=S.pets.find(x=>x.id==id);if(!p)return;p.feeds.forEach(fcancel);p.hl.forEach(unsched);p.care.forEach(unsched);S.pets=S.pets.filter(x=>x.id!=id);dpid=null;if(pv==id)pv=null;save();render()}
+// ===== چالش ۷۵ روزه (ماژول عادت‌ها) =====
+const XI=['📖','🏃','🧘','🧹','😴','🎯','📝','💧','🥗','🎨','💪','🌿'];
+const XDEF=[['مطالعه','هر روز کمی بخون، حتی چند صفحه.','📖'],['فعالیت بدنی متناسب','متناسب با سن و توان خودت. اگه خسته‌ای سبک‌تر انجامش بده یا استراحت کن.','🏃'],['تمرین تمرکز','چند دقیقه تنفس آرام، مدیتیشن یا کار بدون حواس‌پرتی.','🧘'],['رسیدگی به امور شخصی','یه کار شخصی یا خونه که عقب افتاده.','🧹'],['خواب منظم','تقریباً سر یه ساعت بخواب و بیدار شو.','😴'],['یادگیری مهارت','یه مهارت یا درس جدید.','🎯'],['ثبت گزارش روزانه','چند خط توی دفترچه بنویس.','📝','diary']];
+const xhab=a=>({id:uid(),t:a[0],d:a[1],ic:a[2],tm:'',al:0,on:1,ds:[0,1,2,3,4,5,6],n:pn(),...(a[3]?{auto:a[3]}:{})});
+if(S.cx&&(!Array.isArray(S.cx.h)||!Array.isArray(S.cx.hist)||!S.cx.dy||typeof S.cx.dy!='object')){S.cx_old=S.cx;S.cx=null}
+if(S.cx==null)S.cx={h:XDEF.map(xhab),c:null,hist:[],dy:{},nt:1};
+const XTB=[['today','امروز'],['cal','تقویم'],['rep','گزارش'],['dia','دفترچه'],['hab','عادت‌ها'],['mgt','چالش']];
+const DF=[['ev','اتفاقات روز'],['fe','احساسات'],['ac','دستاوردها'],['pr','مشکلات'],['go','اهداف فردا']];
+const SAFE=['هدف این چالش ساختن عادت‌هاست؛ رژیم محدودکننده یا کاهش وزن اجباری نیست.','فعالیت بدنی رو متناسب با سن و توانت انتخاب کن. اگه بیماری یا شرایط خاص داری، با پزشک مشورت کن.','استراحت بخشی از برنامه‌ست. روز استراحت و توقف موقت داری.','اگه روزی کامل نشد، فردا ادامه بده. نیازی به جبران یا ورزش اضافه نیست.'];
+let xt='today',xsel=null,xed=null,xq='',xpr='w',xdh=null,xend2=false,xrs2=false,pvw=null,pdel=false,nto=null,PH={};
+const X=()=>S.cx,XC=()=>S.cx.c;
+const xset=c=>{const s=new Set(c.sk);if(c.pa){let d=c.pa;while(d<=T){s.add(d);d=addd(d,1)}}return s};
+const xdates=c=>{const s=xset(c),a=[];let d=c.st,k=0;while(a.length<75&&k<2000){if(!s.has(d))a.push(d);d=addd(d,1);k++}return a};
+const xap=iso=>X().h.filter(h=>h.on&&h.ds.includes(dt(iso).getDay()));
+const xdy=iso=>{const e=X().dy[iso];return!!e&&Object.values(e).some(v=>String(v).trim())};
+const xreq=(c,iso)=>{const r=c.days[iso];return r&&r.r.length?r.r.map(id=>X().h.find(h=>h.id==id)).filter(Boolean):xap(iso)};
+const xdone=(c,iso,h)=>{const r=c.days[iso];return!!(r&&r.d.includes(h.id))||(h.auto=='diary'&&xdy(iso))};
+const xst=(c,iso)=>{const q=xreq(c,iso);if(!q.length)return'free';const n=q.filter(h=>xdone(c,iso,h)).length;return n==q.length?'ok':n?'part':'miss'};
+const xok=(c,iso)=>{const s=xst(c,iso);return s=='ok'||s=='free'};
+const xstats=(c,i0,i1)=>{const ds=xdates(c),per={};let q=0,d=0,ok=0,days=0;
+for(let i=i0;i<=i1&&i<75;i++){const iso=ds[i];if(!iso||iso>T)break;days++;if(xok(c,iso))ok++;xreq(c,iso).forEach(h=>{const p=per[h.id]||(per[h.id]={h,q:0,d:0});q++;p.q++;if(xdone(c,iso,h)){d++;p.d++}})}
+return{q,d,pct:q?Math.round(d/q*100):100,ok,days,per:Object.values(per)}};
+const xstreak=c=>{let run=0,best=0;for(const iso of xdates(c)){if(iso>T)break;if(xok(c,iso)){run++;best=Math.max(best,run)}else if(iso<T)run=0}return{cur:run,best}};
+const xbars=(v,l)=>`<div class=bars>${v.map((p,k)=>`<div><i style="height:${p==null?3:Math.max(4,p)}%"></i><small>${l?l[k]:fa(k+1)}</small></div>`).join('')}</div>`;
+const xweeks=c=>{const ds=xdates(c),a=[];for(let k=0;k<11;k++){const i0=k*7;a.push(ds[i0]&&ds[i0]<=T?xstats(c,i0,Math.min(i0+6,74)).pct:null)}return a};
+const xsum=()=>{const c=XC();if(!c)return'شروع نشده';if(c.pa)return'متوقف شده';const ds=xdates(c),i=ds.indexOf(T);if(T<c.st)return'شروع در '+fa(diff(c.st,T))+' روز';if(i>=0)return'روز '+fa(i+1)+' از ۷۵';return ds[74]&&T>ds[74]?'پایان چالش':'روز استراحت'};
+// ذخیره و یادآوری
+async function xsch(){const L=LN();if(!L)return;try{const ids=[];X().h.forEach(h=>{for(let d=0;d<7;d++)ids.push({id:h.n+d})});await L.cancel({notifications:ids});
+const c=XC();if(!X().nt||!c||c.pa)return;const ds=xdates(c);if(T>ds[74])return;const ns=[];
+X().h.forEach(h=>{if(!h.on||!h.al||!h.tm)return;const[hh,mm]=h.tm.split(':').map(Number);h.ds.forEach(d=>ns.push({id:h.n+d,title:'چالش ۷۵ روزه',body:h.ic+' '+h.t,schedule:{on:{weekday:d+1,hour:hh,minute:mm},allowWhileIdle:true}}))});
+if(ns.length){await L.requestPermissions();await L.schedule({notifications:ns})}}catch(e){}}
+function xtg(iso,id){const c=XC();if(iso>T)return;const r=c.days[iso]||(c.days[iso]={d:[],r:[]});r.r=xap(iso).map(h=>h.id);r.d=r.d.includes(id)?r.d.filter(x=>x!=id):[...r.d,id];save();render()}
+function xnote(k,v){const e=X().dy[T]||(X().dy[T]={});e[k]=v;clearTimeout(nto);nto=setTimeout(save,500)}
+function xsrch(v){xq=v;const d=g('dl');if(d)d.innerHTML=xlist()}
+function xstart(){const st=toIso(+val('wy'),+val('wm'),+val('wd'));X().c={id:uid(),nm:val('cn')||'چالش ۷۵ روزه',st,sk:[],pa:'',days:{}};xt='today';xsel=null;save();xsch();render()}
+function xpause(){const c=XC();if(c.pa){let d=c.pa;while(d<T){c.sk.push(d);d=addd(d,1)}c.pa=''}else c.pa=T;save();xsch();render()}
+function xrest(){const c=XC();c.sk=c.sk.includes(T)?c.sk.filter(d=>d!=T):[...c.sk,T];save();render()}
+function xend(){if(!xend2){xend2=true;render();setTimeout(()=>{xend2=false;if(tab=='ch')render()},4000);return}xend2=false;const c=XC(),s=xstats(c,0,74);X().hist.push({...c,en:T,okd:s.ok,pct:s.pct});X().c=null;save();xsch();render()}
+function xnt(){X().nt=X().nt?0:1;save();xsch();render()}
+function xon(id){const h=X().h.find(h=>h.id==id);h.on=h.on?0:1;save();xsch();render()}
+function xedit(id){xed=id;xt='hab';render();try{scrollTo(0,0)}catch(e){}}
+function xdel(id){if(xdh!=id){xdh=id;render();setTimeout(()=>{if(xdh==id){xdh=null;if(tab=='ch')render()}},4000);return}const h=X().h.find(x=>x.id==id);X().h=X().h.filter(x=>x.id!=id);xdh=null;save();(async()=>{const L=LN();if(L)try{await L.cancel({notifications:[0,1,2,3,4,5,6].map(d=>({id:h.n+d}))})}catch(e){}})();render()}
+function xsaveH(){const t=val('hn');if(!t)return g('hn').focus();const ds=[...document.querySelectorAll('.hch input:checked')].map(i=>+i.value);
+const o={t,d:val('hd'),ic:val('hi'),al:g('al').checked?1:0,tm:gtm(),ds:ds.length?ds:[0,1,2,3,4,5,6]};
+if(xed){Object.assign(X().h.find(h=>h.id==xed),o);xed=null}else X().h.push({id:uid(),on:1,n:pn(),...o});save();xsch();render()}
+function xbk(){const t=JSON.stringify(S);g('bkt').value=t;try{navigator.clipboard.writeText(t);toast('پشتیبان ساخته و کپی شد')}catch(e){toast('متن پشتیبان ساخته شد؛ انتخاب و کپی کن')}}
+function xrs(){let o;try{o=JSON.parse(g('bkt').value)}catch(e){return toast('متن پشتیبان معتبر نیست')}if(!o||!Array.isArray(o.shop)||!o.cx)return toast('متن پشتیبان معتبر نیست');
+if(!xrs2){xrs2=true;render();setTimeout(()=>{xrs2=false;if(tab=='ch')render()},4000);return}Object.keys(S).forEach(k=>delete S[k]);Object.assign(S,o);save();try{location.reload()}catch(e){}}
+// عکس‌ها توی IndexedDB ذخیره می‌شن
+const idb=()=>new Promise((ok,no)=>{const r=indexedDB.open('hk',1);r.onupgradeneeded=()=>r.result.createObjectStore('ph');r.onsuccess=()=>ok(r.result);r.onerror=()=>no(r.error)});
+async function phLoad(){try{const st=(await idb()).transaction('ph').objectStore('ph');const ks=await new Promise(r=>{const q=st.getAllKeys();q.onsuccess=()=>r(q.result)});const vs=await new Promise(r=>{const q=st.getAll();q.onsuccess=()=>r(q.result)});ks.forEach((k,i)=>PH[k]=vs[i]);render()}catch(e){}}
+async function phSave(k,v){try{(await idb()).transaction('ph','readwrite').objectStore('ph').put(v,k)}catch(e){}}
+async function phDel(k){try{(await idb()).transaction('ph','readwrite').objectStore('ph').delete(k)}catch(e){}}
+function phAdded(u){PH[T]=u;phSave(T,u);render()}
+function pickPh(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,800/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);phAdded(c.toDataURL('image/jpeg',.72))};im.src=r.result};r.readAsDataURL(f);inp.value=''}
+function askPd(){if(pdel){phDel(pvw);delete PH[pvw];pvw=null;pdel=false;render();return}pdel=true;render()}
+// نمایش
+const xnone=()=>`<div class=sum><small>چالش ۷۵ روزه</small><b>هنوز چالشی شروع نشده</b><small>اول عادت‌هات رو بررسی کن، بعد چالش رو شروع کن.</small></div><button onclick="xt='mgt';render()">شروع چالش</button>`;
+const xlistH=(c,iso,fut)=>{const q=xreq(c,iso);return q.length?q.map(h=>{const man=c.days[iso]&&c.days[iso].d.includes(h.id),d=xdone(c,iso,h),auto=d&&!man&&h.auto=='diary';return `<div class="it ${d?'dn':''}"><label><input type=checkbox ${d?'checked':''} ${fut||auto?'disabled':''} onchange="xtg('${iso}','${h.id}')"><span>${h.ic} ${esc(h.t)}<small>${esc(h.d||'')}${h.al&&h.tm?(h.d?'، ':'')+'یادآوری '+ft(h.tm):''}${auto?' (با نوشتن دفترچه ثبت شد)':''}</small></span></label></div>`}).join(''):empty('برای این روز عادتی تعریف نشده.')};
+const xdv=iso=>{const e=X().dy[iso];if(!e||!xdy(iso))return'';return `<p class=lb>دفترچه همین روز</p>`+DF.filter(([k])=>String(e[k]||'').trim()).map(([k,l])=>`<div class=it><span>${l}<small style="white-space:pre-wrap;color:var(--tx);font-size:15px">${esc(e[k])}</small></span></div>`).join('')};
+function xday(iso){const c=XC(),ds=xdates(c),i=ds.indexOf(iso),hd=`<p class=lb style="margin:12px 4px 6px">${jd(iso,{weekday:'long'})}، ${fdt(iso)}${i>=0?'، روز '+fa(i+1):''}</p>`;
+if(i<0)return hd+empty(c.sk.includes(iso)||(c.pa&&iso>=c.pa&&iso<=T)?'این روز استراحت یا توقف بوده و جزو ۷۵ روز حساب نمی‌شه.':'این روز جزو چالش نیست.');
+const fut=iso>T,st=xst(c,iso),msg=fut?'':(st=='ok'||st=='free')?'روز کامل بود.':'روز ناقص بود. اشکالی نداره؛ فردا ادامه بده. نیازی به جبران نیست.';
+return hd+(msg?`<p class=lb style="margin:0 4px 6px">${msg}</p>`:'')+xlistH(c,iso,fut)+(PH[iso]?`<img class=ph1 src="${PH[iso]}" onclick="pvw='${iso}';render()">`:'')+xdv(iso)}
+function xlist(){const q=xq.trim().toLowerCase(),ks=Object.keys(X().dy).filter(k=>k<T&&xdy(k)&&(!q||Object.values(X().dy[k]).join(' ').toLowerCase().includes(q))).sort().reverse();
+return ks.length?ks.map(k=>`<div class=it style="display:block"><b style="font-size:14px">${fdt(k)}</b>${DF.filter(([f])=>String(X().dy[k][f]||'').trim()).map(([f,l])=>`<small style="white-space:pre-wrap;color:var(--tx);font-size:15px"><span style="color:var(--mu);font-size:12px">${l}: </span>${esc(X().dy[k][f])}</small>`).join('')}</div>`).join(''):empty(q?'نوشته‌ای با این عبارت پیدا نشد.':'هنوز نوشته قبلی نیست.')}
+const XV={
+today:()=>{if(!XC())return xnone();const c=XC();
+if(c.pa)return `<div class=sum><small>${esc(c.nm)}</small><b>متوقف شده</b><small>از ${fdt(c.pa)}. روزهای توقف جزو ۷۵ روز حساب نمی‌شن.</small></div><button onclick="xpause()">ادامه چالش</button>`;
+const ds=xdates(c),i=ds.indexOf(T);
+if(T<c.st)return `<div class=sum><small>${esc(c.nm)}</small><b>${fa(diff(c.st,T))} روز دیگه شروع می‌شه</b><small>${fdt(c.st)}</small></div>`;
+if(i<0&&T>ds[74]){const s=xstats(c,0,74);return `<div class=sum><small>${esc(c.nm)}</small><b>پایان چالش</b><small>${fa(s.ok)} روز کامل از ۷۵، ${fa(s.pct)}٪ عادت‌ها انجام شد</small></div><button onclick="xt='mgt';render()">ثبت در سوابق و شروع چالش جدید</button>`}
+if(i<0)return `<div class=sum><small>${esc(c.nm)}</small><b>امروز روز استراحته</b><small>این روز جزو ۷۵ روز حساب نمی‌شه.</small></div><button onclick="xrest()">لغو استراحت امروز</button>`;
+const s=xstats(c,0,74),k=xstreak(c),q=xreq(c,T),dn=q.filter(h=>xdone(c,T,h)).length,y=X().dy[addd(T,-1)];
+return `<div class=sum><small>${esc(c.nm)}</small><b>روز ${fa(i+1)} از ۷۵</b><small>${fa(74-i)} روز باقی‌مانده، ${fa(Math.round(s.ok/75*100))}٪ پیشرفت</small><small>امروز ${fa(dn)} از ${fa(q.length)} عادت، استمرار ${fa(k.cur)} روز (بیشترین ${fa(k.best)})</small><div class=pg><i style="width:${(i+1)/75*100}%"></i></div></div>`+
+`<div class=it style="display:block"><small>پیشرفت هفتگی (درصد عادت‌های انجام‌شده)</small>${xbars(xweeks(c))}</div>`+
+(y&&String(y.go||'').trim()?`<div class=it><span>هدف امروز (نوشته دیروز)<small style="white-space:pre-wrap;color:var(--tx);font-size:15px">${esc(y.go)}</small></span></div>`:'')+
+`<p class=lb>عادت‌های امروز</p>`+xlistH(c,T,false)+
+`<div class=fm style="margin-top:10px"><button onclick="xt='rep';render()">گزارش‌ها</button><button onclick="xt='dia';render()">دفترچه</button></div><button class=gh onclick="xrest()">امروز استراحت، بدون جبران</button>`},
+cal:()=>{if(!XC())return xnone();const c=XC(),ds=xdates(c),sel=xsel||(ds.includes(T)?T:ds[0]);
+return `<div class="g75 w7">${ds.map((iso,i)=>`<i class="${iso>T?'':({ok:'ok',free:'ok',part:'part',miss:'bad'})[xst(c,iso)]} ${iso==T?'td':''} ${iso==sel?'sl':''}" onclick="xsel='${iso}';render()">${fa(i+1)}</i>`).join('')}</div><p class=lb style="margin:0 4px">سبز: کامل، زرد: نیمه‌کاره، قرمز: ناقص. روی هر روز بزنی گزارشش باز می‌شه.</p>`+xday(sel)},
+rep:()=>{if(!XC())return xnone();const c=XC(),ds=xdates(c),ti=ds.filter(d=>d<=T).length-1;
+const tb=`<div class=wk>${[['d','روزانه'],['w','هفتگی'],['a','کل دوره']].map(([k,l])=>`<button class="${k==xpr?'on':''}" onclick="xpr='${k}';render()">${l}</button>`).join('')}</div>`;
+if(ti<0)return tb+empty('هنوز روزی از چالش شروع نشده.');
+const[i0,i1]=xpr=='d'?[ti,ti]:xpr=='w'?[Math.max(0,ti-6),ti]:[0,ti],s=xstats(c,i0,i1),k=xstreak(c),per=s.per.filter(p=>p.q).sort((a,b)=>b.d/b.q-a.d/a.q);
+const good=per.filter(p=>p.d/p.q>=.8),low=per.filter(p=>p.d/p.q<.5);
+const tr=xpr=='a'?xbars(xweeks(c)):xpr=='w'?xbars(ds.slice(i0,i1+1).map((d,j)=>xstats(c,i0+j,i0+j).pct),ds.slice(i0,i1+1).map((d,j)=>fa(i0+j+1))):'';
+return tb+`<div class=sum><small>${xpr=='d'?'امروز':xpr=='w'?'۷ روز اخیر':'کل دوره'}</small><b>${fa(s.pct)}٪ عادت‌ها انجام شد</b><small>${fa(s.d)} از ${fa(s.q)} عادت، ${fa(s.ok)} روز کامل از ${fa(s.days)} روز</small><small>استمرار فعلی ${fa(k.cur)} روز، بیشترین ${fa(k.best)} روز</small></div>`+
+(tr?`<div class=it style="display:block"><small>${xpr=='a'?'روند پیشرفت هفتگی':'روند روزانه'}</small>${tr}</div>`:'')+
+`<p class=lb>عملکرد هر عادت</p>`+(per.length?per.map(p=>{const v=Math.round(p.d/p.q*100);return `<div class=it><span>${p.h.ic} ${esc(p.h.t)}<small>${fa(p.d)} از ${fa(p.q)} بار</small><div class=pb><i style="width:${v}%"></i></div></span><b>${fa(v)}٪</b></div>`}).join(''):empty('داده‌ای نیست.'))+
+(good.length?`<p class=lb>عادت‌های موفق</p><div class=it><span>${good.map(p=>p.h.ic+' '+esc(p.h.t)).join('، ')}</span></div>`:'')+
+(low.length?`<p class=lb>نیازمند توجه</p><div class=it><span>${low.map(p=>p.h.ic+' '+esc(p.h.t)).join('، ')}<small>می‌تونی زمانش رو عوض کنی یا هدفش رو سبک‌تر کنی.</small></span></div>`:'')},
+dia:()=>{const e=X().dy[T]||{};
+return `<p class=lb style="margin:0 4px 8px">دفترچه امروز: ${fdt(T)}</p>`+DF.map(([k,l])=>`<p class=lb style="margin:8px 4px 4px">${l}</p><textarea id=dy_${k} rows=3 oninput="xnote('${k}',this.value)">${esc(e[k]||'')}</textarea>`).join('')+
+`<p class=lb>عکس امروز (اختیاری)</p>${PH[T]?`<img class=ph1 src="${PH[T]}" onclick="pvw='${T}';render()">`:''}<div class=fm><label class=fb>گرفتن عکس<input type=file accept="image/*" capture=environment onchange="pickPh(this)"></label><label class=fb>انتخاب از گالری<input type=file accept="image/*" onchange="pickPh(this)"></label></div>`+
+`<p class=lb>نوشته‌های قبلی</p><input id=xq placeholder="جست‌وجو توی نوشته‌ها" value="${esc(xq)}" oninput="xsrch(this.value)" style="width:100%;margin-bottom:8px"><div id=dl>${xlist()}</div>`},
+hab:()=>{const e=xed&&X().h.find(h=>h.id==xed),dn=['ش','ی','د','س','چ','پ','ج'];const o=e||{t:'',d:'',ic:XI[0],tm:'09:00',al:0,ds:[0,1,2,3,4,5,6]};
+const sel=(w=>DAYS.map(d=>`<label><input type=checkbox value=${d[0]}${o.ds.includes(d[0])?' checked':''}><span>${d[1]}</span></label>`).join(''))();
+return `<div class=fm><input id=hn placeholder="اسم عادت" value="${esc(o.t)}"><select id=hi>${XI.map(i=>`<option${i==o.ic?' selected':''}>${i}</option>`).join('')}</select><input id=hd placeholder="توضیحات (اختیاری)" value="${esc(o.d)}" style="flex:1 1 100%"><p class=lb style="flex:1 1 100%;margin:2px 4px">روزهای انجام:</p><div class="ds hch">${sel}</div><p class=lb style="flex:1 1 100%;margin:2px 4px">یادآوری:</p>${alr('یادآوری').replace('id=al>','id=al'+(o.al?' checked':'')+'>').replace('value="09"','value="'+(o.tm||'09:00').slice(0,2)+'"').replace('value="00"','value="'+(o.tm||'09:00').slice(3,5)+'"')}<button onclick="xsaveH()">${xed?'ذخیره تغییرات':'افزودن عادت'}</button>${xed?`<button class=gh onclick="xed=null;render()">لغو ویرایش</button>`:''}</div>`+
+X().h.map(h=>`<div class="it ${h.on?'':'dn'}"><span>${h.ic} ${esc(h.t)}<small>${esc(h.d||'')}${h.d?'، ':''}${h.ds.length==7?'هر روز':DAYS.filter(d=>h.ds.includes(d[0])).map(d=>d[1]).join('، ')}${h.al&&h.tm?'، یادآوری '+ft(h.tm):''}</small></span><label class=ck style="flex:none"><input type=checkbox ${h.on?'checked':''} onchange="xon('${h.id}')"><span>فعال</span></label><button class=x aria-label="ویرایش" onclick="xedit('${h.id}')">✎</button><button class=x aria-label="حذف" onclick="xdel('${h.id}')">${xdh==h.id?'حذف؟':'×'}</button></div>`).join('')},
+mgt:()=>{const c=XC();let h='';
+if(!c)h=`<div class=fm><input id=cn placeholder="اسم چالش (اختیاری)" style="flex:1 1 100%"><p class=lb style="flex:1 1 100%;margin:2px 4px">تاریخ شروع:</p>${jpick()}<button onclick="xstart()">شروع چالش ۷۵ روزه</button></div>`;
+else{const ds=xdates(c),i=ds.indexOf(T);h=`<div class=sum><small>${esc(c.nm)}</small><b>${c.pa?'متوقف شده':i>=0?'روز '+fa(i+1)+' از ۷۵':T<c.st?'هنوز شروع نشده':T>ds[74]?'پایان چالش':'امروز استراحته'}</b><small>شروع: ${fdt(c.st)}</small><small>پایان (با احتساب استراحت و توقف): ${fdt(ds[74])}</small></div>`+
+`<div class=fm>${T>ds[74]?'':`<button onclick="xpause()">${c.pa?'ادامه چالش':'توقف موقت'}</button>`}${c.pa||T>ds[74]||T<c.st?'':`<button onclick="xrest()">${c.sk.includes(T)?'لغو استراحت امروز':'استراحت امروز'}</button>`}</div><button class=gh onclick="xend()">${xend2?'مطمئنی؟ دوباره بزن تا ثبت بشه':'پایان چالش و ثبت در سوابق'}</button>`}
+return h+`<div class=it><label><input type=checkbox ${X().nt?'checked':''} onchange="xnt()"><span>اعلان‌ها<small>${X().nt?'روشن':'خاموش'}؛ یادآوری عادت‌ها بدون اینترنت کار می‌کنه</small></span></label></div>`+
+`<p class=lb>سوابق چالش‌ها</p>`+(X().hist.length?X().hist.slice().reverse().map(r=>`<div class=it><span>${esc(r.nm)}<small>${fdt(r.st)} تا ${fdt(r.en)}، ${fa(r.okd)} روز کامل، ${fa(r.pct)}٪ عادت‌ها</small></span></div>`).join(''):empty('هنوز چالشی تموم نشده.'))+
+`<p class=lb>پشتیبان‌گیری و بازیابی</p><textarea id=bkt rows=3 placeholder="متن پشتیبان اینجا میاد؛ برای بازیابی، متن پشتیبان رو اینجا بچسبون"></textarea><div class=fm style="margin-top:8px"><button onclick="xbk()">ساخت و کپی پشتیبان</button><button onclick="xrs()">${xrs2?'مطمئنی؟ دوباره بزن':'بازیابی از متن'}</button></div><p class=lb style="margin:0 4px">پشتیبان همه اطلاعات برنامه رو شامل می‌شه، به جز عکس‌ها. بازیابی همه اطلاعات فعلی رو جایگزین می‌کنه.</p>`+
+`<p class=lb>نکات ایمنی</p>`+SAFE.map(t=>`<div class=it><span style="font-size:15px">${t}</span></div>`).join('')}
+};
+V.ch=()=>`<div class=wk>${XTB.map(([k,l])=>`<button class="${k==xt?'on':''}" onclick="xt='${k}';render()">${l}</button>`).join('')}</div>`+XV[xt]()+
+(pvw&&PH[pvw]?`<div class=ov onclick="pvw=null;pdel=false;render()"><img src="${PH[pvw]}"><small style="color:#fff">${fdt(pvw)}</small><div class=ovb onclick="event.stopPropagation()"><button onclick="pvw=null;pdel=false;render()">بستن</button><button class=gh2 onclick="askPd()">${pdel?'مطمئنی؟ حذف':'حذف عکس'}</button></div></div>`:'');
+// ===== آشپزخانه هوشمند: داده‌ها =====
+const KC=['گوشت و مرغ','ماهی','تخم‌مرغ','لبنیات','حبوبات','برنج و غلات','سبزیجات','میوه‌ها','ادویه‌ها','روغن‌ها','مواد خشک','مواد منجمد','سایر مواد غذایی'];
+const KU=[['g','گرم'],['kg','کیلوگرم'],['ml','میلی‌لیتر'],['l','لیتر'],['n','عدد'],['pk','بسته'],['tbsp','قاشق غذاخوری'],['tsp','قاشق چای‌خوری'],['cup','پیمانه']];
+const KL=['یخچال','فریزر','کابینت','قفسه','سایر'];
+const KA=['گلوتن','لبنیات','تخم‌مرغ','آجیل','ماهی'];
+// کلید: [نام، دسته (اندیس KC)، واحد پایه، {a: حساسیت‌ها، pc: گرم در هر عدد، pk: گرم در هر بسته، tb/ts/cup: گرم در قاشق/پیمانه}]
+const ING={
+gosht:['گوشت قرمز (گوسفند یا گوساله)',0,'g'],morgh:['مرغ',0,'g'],kime:['گوشت چرخ‌کرده',0,'g'],
+mahi:['ماهی',1,'g',{a:['ماهی']}],
+tokhm:['تخم‌مرغ',2,'n',{a:['تخم‌مرغ']}],
+mast:['ماست',3,'g',{a:['لبنیات'],tb:20,cup:240}],kashk:['کشک',3,'g',{a:['لبنیات'],tb:15}],kare:['کره',3,'g',{a:['لبنیات'],tb:14}],
+lapeh:['لپه',4,'g',{cup:190}],adas:['عدس',4,'g',{cup:190}],lobia_chitti:['لوبیا چیتی',4,'g',{cup:180}],lobia_ghermez:['لوبیا قرمز',4,'g',{cup:180}],nokhod:['نخود',4,'g',{cup:180}],baghali:['باقالی پاک‌شده',4,'g',{cup:150}],
+berenj:['برنج',5,'g',{cup:190,tb:15}],makaroni:['ماکارونی',5,'g',{a:['گلوتن'],pk:500}],reshteh:['رشته آش',5,'g',{a:['گلوتن'],pk:200}],
+piaz:['پیاز',6,'g',{pc:150}],sibzamini:['سیب‌زمینی',6,'g',{pc:150}],gojeh:['گوجه‌فرنگی',6,'g',{pc:130}],sir:['سیر (حبه)',6,'g',{pc:5}],havij:['هویج',6,'g',{pc:100}],bademjan:['بادمجان',6,'g',{pc:250}],felfel_dolme:['فلفل دلمه‌ای',6,'g',{pc:150}],lobia_sabz:['لوبیا سبز',6,'g'],sabzi:['سبزی معطر تازه',6,'g'],shevid:['شوید',6,'g'],gharch:['قارچ',6,'g'],
+limoo_torsh:['لیموترش',7,'g',{pc:60}],
+namak:['نمک',8,'g',{tb:18,ts:6}],felfel_siah:['فلفل سیاه',8,'g',{tb:7,ts:2.5}],zardchoobeh:['زردچوبه',8,'g',{tb:9,ts:3}],darchini:['دارچین',8,'g',{ts:2.5}],zafaran:['زعفران',8,'g',{ts:1}],zire:['زیره',8,'g',{ts:2}],nane_khoshk:['نعنا خشک',8,'g',{ts:1}],
+roghan:['روغن مایع',9,'ml'],
+limoo_omani:['لیمو عمانی',10,'n'],zereshk:['زرشک',10,'g',{tb:8}],kishmish:['کشمش',10,'g',{tb:10,cup:150}],gerdoo:['گردو',10,'g',{a:['آجیل'],cup:100}],rob:['رب گوجه‌فرنگی',10,'g',{tb:18}],shekar:['شکر',10,'g',{tb:12}],ard:['آرد',10,'g',{a:['گلوتن'],tb:8,cup:125}]
+};
+const STAPLES=['namak','felfel_siah','zardchoobeh','roghan'];
+// جایگزین‌ها: ALT[ماده][جایگزین]={f: ضریب تبدیل مقدار (در واحد پایه)، t: توضیح}
+const ALT={
+gosht:{morgh:{f:1,t:'با مرغ هم پخته می‌شه؛ زمان پخت کمتر می‌شه'}},
+limoo_omani:{limoo_torsh:{f:30,t:'در پایان پخت آب‌لیموترش اضافه کن (حدود ۱ قاشق غذاخوری به‌ازای هر لیمو عمانی)'}},
+roghan:{kare:{f:.9,t:'کره هم می‌شه؛ برای سرخ‌کردن زیاد، روغن بهتره'}},
+kare:{roghan:{f:1.1,t:'روغن مایع'}},
+lobia_chitti:{lobia_ghermez:{f:1,t:'لوبیا قرمز هم می‌شه (حتماً کامل بپزش)'}},
+lobia_ghermez:{lobia_chitti:{f:1,t:'لوبیا چیتی هم می‌شه'}}
+};
+const SGT={
+kh:'خورشت رو حداکثر ۲ ساعت بعد از پخت توی ظرف سربسته بذار توی یخچال؛ تا ۳ روز نگهداری می‌شه. توی فریزر تا ۳ ماه. موقع مصرف کامل داغ کن (تا بخار کنه).',
+pl:'برنج پخته رو حداکثر ۱ ساعت بعد از پخت توی ظرف سربسته بذار توی یخچال (برنج مونده توی دمای اتاق خطرناکه)؛ تا ۲ روز نگهداری می‌شه و موقع مصرف باید کامل داغ بشه.',
+eg:'غذاهای تخم‌مرغی بهتره همون روز خورده بشن؛ نهایتاً تا ۱ روز توی یخچال و کامل داغ.',
+ot:'بعد از پخت حداکثر ۲ ساعت بیرون نگه دار؛ توی ظرف سربسته توی یخچال تا ۳ روز و موقع مصرف کامل داغ کن.'};
+const R1='برنج رو چند بار بشور و ۲ تا ۳ ساعت با آب و ۱ قاشق غذاخوری نمک خیس کن.';
+const R2='آب کافی رو با ۱ قاشق غذاخوری نمک به جوش بیار، برنج خیس‌خورده رو بریز و ۶ تا ۸ دقیقه بجوشون تا نیمه‌پز بشه (دونه از بیرون نرم و از مغز سفت باشه)؛ آبکش کن.';
+const R3f=x=>'ته قابلمه ۳ قاشق غذاخوری روغن و ۲ قاشق آب بریز، برنج'+(x?' و '+x:'')+' رو مرحله‌به‌مرحله به شکل مخروط بریز، با ته کفگیر چند سوراخ ایجاد کن و ۲ قاشق روغن و کمی آب روی برنج بریز. دم‌کنی رو دور درِ قابلمه بگیر و ۱۰ دقیقه روی حرارت متوسط و بعد ۴۰ تا ۴۵ دقیقه روی حرارت ملایم دم بکش.';
+const REC=[
+{id:'ghaymeh',n:'قیمه',e:'🍲',c:'غذای سنتی',sv:4,pp:25,ck:150,df:'متوسط',m:'خورشت',s:'kh',ds:'خورشت سنتی گوشت و لپه با لیمو عمانی، مناسب سرو با پلو.',
+ig:[['gosht',400,'g','M',['morgh']],['lapeh',150,'g','R'],['piaz',2,'n','R'],['rob',2,'tbsp','R'],['limoo_omani',3,'n','R',['limoo_torsh']],['sibzamini',2,'n','O'],['zardchoobeh',1,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',4,'tbsp','S']],
+st:['لپه رو بشور و ۲ تا ۳ ساعت (یا از شب قبل) خیس کن.','پیاز رو خلالی کن و با ۳ قاشق غذاخوری روغن توی قابلمه تفت بده تا طلایی بشه.','گوشت رو ۲ تا ۳ سانتی خرد کن، به پیاز اضافه کن و تفت بده تا رنگش عوض بشه. زردچوبه، نمک و فلفل رو اضافه کن و چند دقیقه تفت بده.','رب گوجه رو اضافه کن و ۲ دقیقه تفت بده تا بوی خامی‌اش بره.','آب جوش بریز تا ۲ تا ۳ انگشت بالای گوشت رو بپوشونه، درِ قابلمه رو بذار و روی حرارت کم ۱ ساعت بپز.','لپه آبکش‌شده و لیمو عمانی (با چنگال سوراخ‌شده) رو اضافه کن و ۴۵ تا ۶۰ دقیقه دیگه بپز تا گوشت و لپه کاملاً نرم بشن. اگه آب کم شد، کمی آب جوش اضافه کن.','سیب‌زمینی رو خلالی کن و توی روغن داغ سرخ کن؛ موقع سرو روی خورشت بریز.','نمک رو بچش و تنظیم کن. با پلو سرو کن.'],
+tp:['لپه خیس‌نخورده دیر می‌پزه؛ حتماً خیسش کن.','اگه خورشت ترش شد، لیمو عمانی رو بردار.']},
+{id:'ghormeh',n:'قورمه‌سبزی',e:'🌿',c:'غذای سنتی',sv:4,pp:40,ck:180,df:'متوسط',m:'خورشت',s:'kh',ds:'خورشت سبزی، گوشت و لوبیا با لیمو عمانی.',
+ig:[['gosht',400,'g','M',['morgh']],['sabzi',400,'g','M'],['lobia_ghermez',100,'g','R',['lobia_chitti']],['piaz',2,'n','R'],['limoo_omani',4,'n','R',['limoo_torsh']],['zardchoobeh',1,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',6,'tbsp','S']],
+st:['لوبیا رو از شب قبل خیس کن، آب خیساندن رو دور بریز و با آب تازه ۴۰ تا ۴۵ دقیقه بپز تا نیمه‌پز بشه. (لوبیا قرمز خام یا نیم‌پز سمیه؛ توی خورشت باید کاملاً نرم بشه.)','سبزی رو بشور، آبکش کن و ریز خرد کن.','۴ قاشق غذاخوری روغن توی ماهیتابه بریز و سبزی رو روی حرارت کم ۲۰ تا ۳۰ دقیقه تفت بده تا تیره و خوشبو بشه (نباید بسوزه).','پیاز خردشده رو با ۲ قاشق روغن توی قابلمه تفت بده تا طلایی بشه. گوشت (۲ تا ۳ سانتی)، زردچوبه، نمک و فلفل رو اضافه کن و تفت بده تا رنگ گوشت عوض بشه.','آب جوش بریز تا گوشت رو بپوشونه، درِ قابلمه رو بذار و ۱ ساعت روی حرارت کم بپز.','سبزی تفت‌داده، لوبیا و لیمو عمانی (سوراخ‌شده) رو اضافه کن و ۱ تا ۱.۵ ساعت دیگه روی حرارت کم بپز تا لوبیا و گوشت کاملاً نرم بشن و روغن بیاد روی خورشت.','نمک و ترشی رو بچش؛ اگه خیلی ترش شد لیمو عمانی رو بردار.'],
+tp:['سبزی رو با حرارت کم تفت بده؛ سوختنش خورشت رو تلخ می‌کنه.','لوبیا باید کاملاً پخته باشه.']},
+{id:'abgoosht',n:'آبگوشت',e:'🥘',c:'غذای سنتی',sv:4,pp:20,ck:200,df:'متوسط',m:'قابلمه',s:'kh',ds:'غذای سنتی با گوشت، حبوبات و سیب‌زمینی که آبش جدا و گوشتش کوبیده سرو می‌شه.',
+ig:[['gosht',400,'g','M'],['nokhod',100,'g','R'],['lobia_chitti',100,'g','R',['lobia_ghermez']],['sibzamini',2,'n','R'],['piaz',2,'n','R'],['gojeh',2,'n','R'],['rob',1,'tbsp','R'],['limoo_omani',2,'n','O',['limoo_torsh']],['zardchoobeh',1,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',2,'tbsp','S']],
+st:['نخود و لوبیا رو از شب قبل خیس کن و آب خیساندن رو دور بریز.','پیاز رو خرد کن و با ۲ قاشق غذاخوری روغن توی قابلمه تفت بده؛ زردچوبه رو اضافه کن.','گوشت (ترجیحاً با استخوان)، حبوبات، نمک و فلفل رو اضافه کن و حدود ۱.۵ لیتر آب جوش بریز. کف روی آب رو بگیر.','درِ قابلمه رو بذار و ۲ تا ۲.۵ ساعت روی حرارت کم بپز تا گوشت و حبوبات کاملاً نرم بشن.','رب، گوجه‌های سالم و سیب‌زمینی‌های پوست‌کنده رو اضافه کن و ۳۰ تا ۴۰ دقیقه دیگه بپز تا سیب‌زمینی نرم بشه. لیمو عمانی رو هم اضافه کن.','نمک رو تنظیم کن. آب غذا رو آبکش کن و جدا بریز؛ گوشت و حبوبات و سیب‌زمینی رو بکوب و با نون سرو کن.'],
+tp:['گوشت با استخوان آبگوشت رو خوشمزه‌تر می‌کنه.']},
+{id:'adaspolo',n:'عدس‌پلو',e:'🍛',c:'غذای برنجی',sv:4,pp:30,ck:75,df:'متوسط',m:'پلو',s:'pl',ds:'پلوی عدس و پیاز داغ با کشمش، گاهی همراه گوشت یا کتلت.',cheap:1,
+ig:[['berenj',400,'g','M'],['adas',150,'g','R'],['piaz',3,'n','R'],['kishmish',50,'g','O'],['zafaran',.5,'tsp','O'],['darchini',.5,'tsp','O'],['namak',1,'tsp','S'],['roghan',6,'tbsp','S']],
+st:[R1,'عدس رو بشور و توی آب جوش ۱۰ تا ۱۲ دقیقه بپز تا نیمه‌پز بشه (نباید له بشه)؛ آبکش کن.','پیاز رو خلالی کن و با ۳ قاشق غذاخوری روغن تفت بده تا طلایی و تیره بشه. کشمش رو ۱ دقیقه آخر اضافه کن و مقداری برای تزئین کنار بذار.',R2,'دارچین رو با عدس و پیاز داغ مخلوط کن. '+R3f('عدس و پیاز داغ'),'زعفران دم‌کرده رو روی بخشی از برنج بریز و با کشمش تزئین کن.'],
+tp:['عدس رو زیاد نپز تا توی پلو له نشه.']},
+{id:'lobiapolo',n:'لوبیاپلو',e:'🍚',c:'غذای برنجی',sv:4,pp:35,ck:80,df:'متوسط',m:'پلو',s:'pl',ds:'پلوی لوبیا سبز با گوشت چرخ‌کرده و رب.',
+ig:[['berenj',400,'g','M'],['lobia_sabz',300,'g','R'],['kime',300,'g','R'],['piaz',1,'n','R'],['rob',2,'tbsp','R'],['darchini',.5,'tsp','O'],['zardchoobeh',1,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',5,'tbsp','S']],
+st:[R1,'پیاز رو ریز خرد کن و با ۲ قاشق غذاخوری روغن تفت بده. گوشت چرخ‌کرده، زردچوبه، فلفل و نمک رو اضافه کن و تفت بده تا آب گوشت کشیده بشه. رب رو اضافه کن و ۲ دقیقه تفت بده.','لوبیا سبز رو ۲ سانتی خرد کن، به گوشت اضافه کن، ۱ لیوان آب جوش بریز و ۱۵ تا ۲۰ دقیقه بپز تا لوبیا نیمه‌پز و آب تقریباً کشیده بشه. دارچین رو اضافه کن.',R2,R3f('مخلوط لوبیا و گوشت'),'قبل از سرو، برنج و مخلوط رو با ملایمت قاطی کن.'],
+tp:['مخلوط لوبیا باید آبش کشیده باشه، وگرنه برنج چسبناک می‌شه.']},
+{id:'zereshkpolo',n:'زرشک‌پلو با مرغ',e:'🍗',c:'غذای برنجی',sv:4,pp:40,ck:90,df:'متوسط',m:'پلو',s:'pl',ds:'پلوی زرشک با مرغ زعفرانی، از غذاهای مجلسی ایرانی.',
+ig:[['berenj',400,'g','M'],['morgh',800,'g','M'],['zereshk',40,'g','R'],['piaz',1,'n','R'],['zafaran',.5,'tsp','O'],['shekar',2,'tbsp','O'],['kare',30,'g','O',['roghan']],['zardchoobeh',1,'tsp','S'],['namak',2,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',5,'tbsp','S']],
+st:['مرغ رو با پیاز رنده‌شده، زعفران دم‌کرده، نمک، فلفل و زردچوبه مخلوط کن و ۲ ساعت (یا از شب قبل) توی یخچال بذار.','مرغ و مخلوط مزه‌دار رو با ۲ قاشق غذاخوری روغن و نصف لیوان آب توی قابلمه بریز، درِ قابلمه رو بذار و ۴۵ تا ۶۰ دقیقه روی حرارت ملایم بپز تا کاملاً پخته بشه (آب‌ مرغ شفاف باشه و داخلش صورتی نباشه).',R1,R2,R3f(''),'زرشک رو چند بار بشور، ۱۰ دقیقه خیس کن و آبکش کن. با ۱ تا ۲ قاشق کره یا روغن روی حرارت کم ۱ تا ۲ دقیقه تفت بده، شکر رو اضافه کن و ۳۰ ثانیه هم بزن (زود می‌سوزه).','برنج رو با زرشک تزئین کن و با مرغ سرو کن.'],
+tp:['مرغ باید کاملاً پخته بشه؛ داخل ران صورتی نباشه.','زرشک رو بیش از ۲ دقیقه روی حرارت نذار.']},
+{id:'baghalipolo',n:'باقالی‌پلو با مرغ',e:'🍗',c:'غذای برنجی',sv:4,pp:40,ck:90,df:'متوسط',m:'پلو',s:'pl',ds:'پلوی باقالی و شوید با مرغ.',
+ig:[['berenj',400,'g','M'],['baghali',300,'g','M'],['shevid',150,'g','R'],['morgh',800,'g','M'],['piaz',1,'n','R'],['zafaran',.5,'tsp','O'],['zardchoobeh',1,'tsp','S'],['namak',2,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',5,'tbsp','S']],
+st:['پیاز رو خرد کن و با ۲ قاشق غذاخوری روغن تفت بده، زردچوبه رو اضافه کن. مرغ، نمک و فلفل رو اضافه کن، کمی آب بریز و ۴۵ تا ۶۰ دقیقه روی حرارت ملایم بپز تا کاملاً پخته بشه.',R1,'شوید رو بشور و ریز خرد کن. باقالی رو اگه پوست داره پاک کن.','آب نمک رو به جوش بیار، برنج رو بریز و بعد از ۴ دقیقه باقالی رو اضافه کن؛ ۳ تا ۴ دقیقه دیگه بجوشون تا برنج نیمه‌پز بشه و آبکش کن.',R3f('شوید و باقالی'),'با مرغ سرو کن و زعفران دم‌کرده رو روی بخشی از برنج بریز.'],
+tp:['باقالی تازه یا یخ‌زده هر دو مناسبه؛ اگه یخ‌زده‌ست، قبل از استفاده کامل آب‌ بشه.']},
+{id:'sabzipolo',n:'سبزی‌پلو با ماهی',e:'🐟',c:'غذای برنجی',sv:4,pp:40,ck:75,df:'متوسط',m:'پلو',s:'pl',ds:'پلوی سبزی معطر با ماهی سرخ‌شده؛ غذای شب عید.',
+ig:[['berenj',400,'g','M'],['sabzi',150,'g','R'],['mahi',600,'g','M'],['ard',3,'tbsp','O'],['limoo_torsh',1,'n','O'],['zafaran',.5,'tsp','O'],['zardchoobeh',1,'tsp','S'],['namak',2,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',8,'tbsp','S']],
+st:[R1,'سبزی رو بشور و ریز خرد کن.','آب نمک رو به جوش بیار، برنج رو نیمه‌پز کن (۶ تا ۸ دقیقه) و آبکش کن.',R3f('سبزی'),'ماهی رو با نمک، زردچوبه، فلفل و آب‌لیموترش ۳۰ دقیقه مزه‌دار کن.','ماهی رو (در صورت تمایل) توی آرد بغلتون و توی روغن داغ هر طرف ۴ تا ۵ دقیقه سرخ کن تا طلایی و کاملاً پخته بشه.','ماهی رو با پلو سبزی سرو کن؛ موقع سرو حواست به خار ماهی باشه.'],
+tp:['ماهی باید کاملاً پخته بشه و داخلش شفاف نباشه.']},
+{id:'omelet',n:'املت',e:'🍳',c:'غذای سریع',sv:2,pp:5,ck:15,df:'آسان',m:'ماهیتابه',s:'eg',ds:'املت گوجه‌فرنگی و تخم‌مرغ، صبحانه یا شام سریع.',cheap:1,
+ig:[['tokhm',4,'n','M'],['gojeh',3,'n','R'],['piaz',1,'n','O'],['zardchoobeh',.25,'tsp','O'],['namak',.5,'tsp','S'],['felfel_siah',.25,'tsp','S'],['roghan',2,'tbsp','S',['kare']]],
+st:['پیاز رو خرد کن و با روغن توی ماهیتابه روی حرارت متوسط تفت بده تا شفاف بشه.','گوجه‌ها رو خرد کن، به پیاز اضافه کن، نمک و فلفل بزن و ۵ تا ۷ دقیقه بپز تا آبش کشیده بشه.','روی گوجه‌ها گودی ایجاد کن و تخم‌مرغ‌ها رو توش بشکن.','درِ ماهیتابه رو بذار و ۴ تا ۵ دقیقه روی حرارت ملایم بپز تا سفیده و زرده کاملاً سفت بشن.'],
+tp:['برای املت نرم‌تر، تخم‌مرغ‌ها رو با چنگال به‌هم بزن.']},
+{id:'kookoosib',n:'کوکو سیب‌زمینی',e:'🥔',c:'غذای سریع',sv:4,pp:20,ck:30,df:'آسان',m:'ماهیتابه',s:'eg',ds:'کوکوی سیب‌زمینی سرخ‌شده، مناسب ناهار یا ساندویچ.',cheap:1,
+ig:[['sibzamini',3,'n','M'],['tokhm',2,'n','R'],['piaz',1,'n','O'],['ard',2,'tbsp','O'],['zardchoobeh',.5,'tsp','S'],['namak',1,'tsp','S'],['felfel_siah',.25,'tsp','S'],['roghan',4,'tbsp','S']],
+st:['سیب‌زمینی‌ها رو با پوست توی آب نمک بپز تا نرم بشن (حدود ۲۰ دقیقه). پوست بکن و له کن یا رنده کن.','پیاز رو رنده کن و آبش رو بگیر.','سیب‌زمینی، پیاز، تخم‌مرغ، آرد، زردچوبه، نمک و فلفل رو خوب مخلوط کن.','مخلوط رو به شکل گرد و کمی ضخیم دربیار.','روغن رو توی ماهیتابه داغ کن و کوکوها رو هر طرف ۴ تا ۵ دقیقه روی حرارت متوسط سرخ کن تا طلایی بشن و داخلشون پخته باشه.'],
+tp:['سیب‌زمینی گرم رو له نکن؛ کمی صبر کن تا ولرم بشه.']},
+{id:'kotlet',n:'کتلت',e:'🥩',c:'غذای سریع',sv:4,pp:30,ck:25,df:'متوسط',m:'ماهیتابه',s:'ot',ds:'کتلت گوشت و سیب‌زمینی سرخ‌شده.',
+ig:[['kime',400,'g','M'],['sibzamini',2,'n','R'],['piaz',1,'n','R'],['tokhm',1,'n','R'],['ard',3,'tbsp','O'],['zardchoobeh',.5,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',6,'tbsp','S']],
+st:['سیب‌زمینی‌ها رو بپز، پوست بکن و رنده کن (یا له کن).','پیاز رو رنده کن و آبش رو بگیر.','گوشت چرخ‌کرده، سیب‌زمینی، پیاز، تخم‌مرغ، زردچوبه، نمک و فلفل رو خوب ورز بده تا یکدست بشه.','مخلوط رو به شکل بیضی دربیار و (اگه دوست داری) توی آرد بغلتون.','روغن رو داغ کن و کتلت‌ها رو هر طرف ۴ تا ۵ دقیقه روی حرارت متوسط سرخ کن تا طلایی بشن و داخلشون کاملاً پخته باشه (صورتی نباشه).'],
+tp:['ورز دادن کافی کتلت رو منسجم می‌کنه و موقع سرخ شدن نمی‌پاشه.']},
+{id:'nimroo',n:'نیمرو',e:'🍳',c:'غذای سریع',sv:2,pp:2,ck:6,df:'آسان',m:'ماهیتابه',s:'eg',ds:'تخم‌مرغ نیمرو، سریع‌ترین غذای خونه.',cheap:1,
+ig:[['tokhm',4,'n','M'],['roghan',1,'tbsp','S',['kare']],['namak',.5,'tsp','S'],['felfel_siah',.25,'tsp','S']],
+st:['روغن رو توی ماهیتابه روی حرارت متوسط داغ کن.','تخم‌مرغ‌ها رو آروم توش بشکن.','درِ ماهیتابه رو بذار و ۳ تا ۴ دقیقه بپز تا سفیده کاملاً سفت و زرده به دلخواهت بسته بشه (برای ایمنی، بهتره زرده هم کمی سفت باشه).','نمک و فلفل بپاش و سرو کن.'],
+tp:['تخم‌مرغ خام یا نیم‌پز برای کودکان، سالمندان و باردارها توصیه نمی‌شه.']},
+{id:'makaroni',n:'ماکارونی',e:'🍝',c:'غذای سریع',sv:4,pp:15,ck:35,df:'آسان',m:'قابلمه',s:'ot',ds:'ماکارونی با سس گوشت و رب.',
+ig:[['makaroni',500,'g','M'],['kime',250,'g','R'],['piaz',1,'n','R'],['rob',2,'tbsp','R'],['sir',3,'n','O'],['gharch',150,'g','O'],['zardchoobeh',.5,'tsp','S'],['namak',2,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',4,'tbsp','S']],
+st:['پیاز و سیر رو خرد کن و با روغن تفت بده تا طلایی بشن.','گوشت چرخ‌کرده رو اضافه کن و تفت بده تا کاملاً پخته بشه. قارچ (اگه داری)، زردچوبه، نمک و فلفل رو اضافه کن.','رب رو اضافه کن و ۲ دقیقه تفت بده؛ ۱ لیوان آب بریز و ۱۰ دقیقه بپز تا غلیظ بشه.','ماکارونی رو توی آب جوش و نمک طبق زمان روی بسته بپز، آبکش کن.','ماکارونی رو با سس قاطی کن و سرو کن.'],
+tp:['یه کم از آب پخت ماکارونی رو برای نرم‌تر شدن سس نگه دار.']},
+{id:'khoraksib',n:'خوراک سیب‌زمینی',e:'🥔',c:'غذای سریع',sv:4,pp:15,ck:35,df:'آسان',m:'قابلمه',s:'ot',ds:'خوراک سیب‌زمینی با رب و پیاز، ارزان و ساده.',cheap:1,
+ig:[['sibzamini',4,'n','M'],['piaz',1,'n','R'],['rob',1,'tbsp','R'],['gojeh',2,'n','O'],['sir',2,'n','O'],['zardchoobeh',.5,'tsp','S'],['namak',1,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',3,'tbsp','S']],
+st:['سیب‌زمینی‌ها رو پوست بکن و ۲ سانتی خرد کن.','پیاز رو خرد کن و با روغن تفت بده؛ سیر و زردچوبه رو اضافه کن.','رب رو اضافه کن و ۱ دقیقه تفت بده؛ سیب‌زمینی، گوجه خردشده (اگه داری)، نمک و فلفل رو اضافه کن.','آب بریز تا حدود نصف سیب‌زمینی‌ها رو بگیره، درِ قابلمه رو بذار و ۲۰ تا ۲۵ دقیقه روی حرارت ملایم بپز تا سیب‌زمینی نرم بشه.'],
+tp:['برای غلیظ‌تر شدن، چند تکه سیب‌زمینی رو با قاشق له کن.']},
+{id:'khorakmorgh',n:'خوراک مرغ',e:'🍗',c:'غذای سریع',sv:4,pp:20,ck:50,df:'آسان',m:'قابلمه',s:'ot',ds:'مرغ با سبزیجات و رب، ساده و کامل.',
+ig:[['morgh',600,'g','M'],['piaz',2,'n','R'],['gojeh',2,'n','R'],['rob',1,'tbsp','R'],['havij',2,'n','O'],['sibzamini',2,'n','O'],['zafaran',.25,'tsp','O'],['zardchoobeh',1,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',3,'tbsp','S']],
+st:['پیاز رو خرد کن و با روغن تفت بده تا طلایی بشه؛ زردچوبه رو اضافه کن.','مرغ رو اضافه کن و هر طرف چند دقیقه سرخ کن. نمک و فلفل بزن.','رب و گوجه‌ی خردشده رو اضافه کن و ۳ دقیقه تفت بده.','سیب‌زمینی و هویج (درشت خرد شده) رو اضافه کن، آب بریز تا نصف مواد رو بگیره و ۳۰ تا ۴۰ دقیقه روی حرارت ملایم بپز تا مرغ کاملاً پخته بشه (آبش شفاف و داخلش صورتی نباشه).','زعفران دم‌کرده رو اضافه کن و با نون یا پلو سرو کن.'],
+tp:['مرغ باید کاملاً پخته بشه.']},
+{id:'kateh',n:'کته',e:'🍚',c:'غذای برنجی',sv:4,pp:5,ck:40,df:'آسان',m:'قابلمه',s:'pl',ds:'کته ساده و نرم؛ مناسب سرو با خورشت، املت یا کباب.',cheap:1,
+ig:[['berenj',400,'g','M'],['roghan',3,'tbsp','S',['kare']],['namak',1,'tsp','S']],
+st:['برنج رو چند بار بشور و ۳۰ دقیقه توی آب خیس کن، بعد آبکش کن.','برنج رو با آب (حدود ۱ و ۱/۲ برابر حجم برنج؛ بسته به نوع برنج کمتر یا بیشتر)، نمک و روغن توی قابلمه بریز و روی حرارت زیاد بذار.','وقتی آب به سطح برنج رسید، حرارت رو کم کن، دم‌کنی رو دور درِ قابلمه بگیر و ۳۰ تا ۳۵ دقیقه دم بکش.','قبل از سرو برنج رو با ملایمت زیر و رو کن.'],
+tp:['نسبت آب به برنج رو برای نوع برنجت امتحان کن و یادداشت کن.']},
+{id:'adasi',n:'عدسی',e:'🥣',c:'غذای گیاهی',sv:4,pp:15,ck:50,df:'آسان',m:'قابلمه',s:'ot',ds:'عدسی ساده با پیاز و سیر، مقوی و ارزان.',cheap:1,
+ig:[['adas',200,'g','M'],['piaz',2,'n','R'],['sir',3,'n','R'],['sibzamini',1,'n','O'],['limoo_torsh',1,'n','O'],['zire',.5,'tsp','O'],['zardchoobeh',1,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',3,'tbsp','S']],
+st:['عدس رو بشور و ۳۰ دقیقه خیس کن.','پیاز و سیر رو خرد کن و با روغن تفت بده تا طلایی بشن؛ زردچوبه رو اضافه کن.','عدس آبکش‌شده و سیب‌زمینی خردشده (اگه داری) رو اضافه کن، ۴ تا ۵ لیوان آب بریز و بعد از جوش آمدن حرارت رو کم کن.','۳۰ تا ۴۰ دقیقه بپز تا عدس کاملاً نرم بشه. نمک، فلفل و زیره رو اضافه کن.','موقع سرو آب‌لیموترش بریز.'],
+tp:['اگه غلیظ بود، کمی آب جوش اضافه کن.']},
+{id:'khoraklobia',n:'خوراک لوبیا',e:'🫘',c:'غذای گیاهی',sv:4,pp:15,ck:90,df:'آسان',m:'قابلمه',s:'kh',ds:'لوبیا چیتی با رب و پیاز.',cheap:1,
+ig:[['lobia_chitti',250,'g','M',['lobia_ghermez']],['piaz',1,'n','R'],['rob',2,'tbsp','R'],['sir',3,'n','O'],['gojeh',1,'n','O'],['zardchoobeh',.5,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',3,'tbsp','S']],
+st:['لوبیا رو از شب قبل خیس کن و آب خیساندن رو دور بریز.','لوبیا رو با آب تازه ۴۵ تا ۶۰ دقیقه بپز تا نیمه‌پز بشه (لوبیا باید در پایان کاملاً نرم باشه).','پیاز و سیر رو خرد کن و با روغن تفت بده؛ زردچوبه و رب رو اضافه کن و ۲ دقیقه تفت بده.','لوبیای پخته‌شده و گوجه خردشده (اگه داری) رو اضافه کن، نمک و فلفل بزن و ۲۰ تا ۳۰ دقیقه روی حرارت ملایم بپز.'],
+tp:['لوبیا نیم‌پز یا خام برای هضم و سلامتی مناسب نیست؛ حتماً کامل بپزش.']},
+{id:'dolmeh',n:'دلمه فلفل',e:'🫑',c:'غذای سنتی',sv:4,pp:45,ck:60,df:'متوسط',m:'قابلمه',s:'ot',ds:'فلفل دلمه‌ای پر شده با گوشت، برنج و سبزی.',
+ig:[['felfel_dolme',6,'n','M'],['kime',250,'g','R'],['berenj',100,'g','R'],['piaz',2,'n','R'],['sabzi',100,'g','R'],['rob',2,'tbsp','R'],['gojeh',2,'n','O'],['zardchoobeh',1,'tsp','S'],['namak',2,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',4,'tbsp','S']],
+st:['برنج رو بشور و ۱ ساعت خیس کن و آبکش کن.','پیاز رو ریز خرد کن و با ۲ قاشق روغن تفت بده؛ گوشت چرخ‌کرده و زردچوبه رو اضافه کن و تفت بده تا پخته بشه.','برنج، سبزی ریز خردشده، نصف رب، نمک و فلفل رو به مخلوط گوشت اضافه کن و مخلوط کن.','سر فلفل‌ها رو ببر، دانه‌ها رو خالی کن و مخلوط رو توشون بریز تا دو سوم پر بشن.','فلفل‌ها رو ته قابلمه بچین، گوجه‌ها رو لای‌شون بذار، رب باقی‌مانده رو با ۱.۵ لیوان آب و کمی نمک مخلوط کن و روی دلمه‌ها بریز.','درِ قابلمه رو بذار و ۴۵ تا ۶۰ دقیقه روی حرارت ملایم بپز تا برنج و فلفل کاملاً نرم بشن.'],
+tp:['برنج داخل فلفل جا باز می‌کنه؛ بیشتر از دو سوم پر نکن.']},
+{id:'ashreshteh',n:'آش رشته',e:'🍜',c:'غذای گیاهی',sv:6,pp:45,ck:120,df:'متوسط',m:'قابلمه',s:'kh',ds:'آش غلیظ با حبوبات، سبزی، رشته و کشک.',
+ig:[['reshteh',150,'g','M'],['lobia_chitti',80,'g','R',['lobia_ghermez']],['nokhod',80,'g','R'],['adas',60,'g','R'],['sabzi',400,'g','M'],['piaz',2,'n','R'],['sir',4,'n','R'],['kashk',100,'g','R'],['nane_khoshk',2,'tsp','O'],['zardchoobeh',1,'tsp','S'],['namak',2,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',4,'tbsp','S']],
+st:['نخود و لوبیا رو از شب قبل خیس کن و آب خیساندن رو دور بریز.','حدود ۲.۵ لیتر آب رو به جوش بیار، نخود و لوبیا رو بریز و ۴۵ تا ۶۰ دقیقه بپز تا نیمه‌پز بشن (لوبیا باید در پایان کاملاً نرم باشه).','پیاز رو خرد کن و با ۳ قاشق غذاخوری روغن تفت بده تا طلایی بشه؛ نصفش رو برای تزئین کنار بذار و نصف دیگه رو با زردچوبه به آش اضافه کن.','عدس رو اضافه کن و ۲۰ دقیقه بپز، بعد سبزی ریز خردشده، نمک و فلفل رو اضافه کن و ۳۰ دقیقه بپز.','رشته رو اضافه کن و ۱۵ تا ۲۰ دقیقه بپز تا نرم بشه (مرتب هم بزن که ته نگیره).','کشک رو با کمی آب مخلوط کن و آخر اضافه کن.','سیر رو با ۱ قاشق روغن تفت بده؛ نعنا رو ۱۰ ثانیه تفت بده (زود می‌سوزه). همراه پیاز داغ روی آش بریز.'],
+tp:['موقع پخت رشته مرتب هم بزن.','کشک رو بعد از اضافه کردن زیاد نجوشون.']},
+{id:'kookoosabzi',n:'کوکو سبزی',e:'🥬',c:'غذای سنتی',sv:4,pp:25,ck:30,df:'آسان',m:'ماهیتابه',s:'eg',ds:'کوکوی سبزی معطر با گردو و زرشک.',
+ig:[['sabzi',300,'g','M'],['tokhm',5,'n','R'],['ard',2,'tbsp','O'],['gerdoo',40,'g','O'],['zereshk',20,'g','O'],['zardchoobeh',.5,'tsp','S'],['namak',1.5,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',4,'tbsp','S']],
+st:['سبزی رو بشور، کاملاً خشک کن و خیلی ریز خرد کن.','تخم‌مرغ‌ها رو بزن؛ سبزی، آرد، ادویه، نمک و (اگه دوست داری) گردو و زرشک رو اضافه کن.','روغن رو توی ماهیتابه داغ کن، مخلوط رو بریز، درِ ماهیتابه رو بذار و ۱۵ دقیقه روی حرارت ملایم بپز.','کوکو رو برگردون و ۱۰ دقیقه دیگه بپز تا دو طرفش پخته و طلایی بشه و داخلش خام نباشه.','برش بزن و سرو کن.'],
+tp:['سبزی نباید خیس باشه، وگرنه کوکو آب می‌ندازه.']},
+{id:'mirza',n:'میرزاقاسمی',e:'🍆',c:'غذای سنتی',sv:4,pp:20,ck:50,df:'متوسط',m:'ماهیتابه',s:'eg',ds:'بادمجان کبابی با سیر، گوجه و تخم‌مرغ (غذای شمالی).',
+ig:[['bademjan',4,'n','M'],['gojeh',3,'n','R'],['sir',4,'n','R'],['tokhm',2,'n','R'],['zardchoobeh',.5,'tsp','S'],['namak',1,'tsp','S'],['felfel_siah',.5,'tsp','S'],['roghan',4,'tbsp','S']],
+st:['بادمجان‌ها رو چند جا با چنگال سوراخ کن و روی شعله یا توی فر ۲۲۰ درجه ۴۰ دقیقه بپز تا نرم بشن و پوستشون بسوزه.','پوست بادمجان‌ها رو بکن و گوشت اون‌ها رو له کن.','سیر رو خرد کن و با روغن و زردچوبه تفت بده.','گوجه‌ها رو رنده کن و به سیر اضافه کن و تا وقتی آبش کشیده بشه بپز.','بادمجان له‌شده، نمک و فلفل رو اضافه کن و تا وقتی روغن بیاد روی غذا بپز.','تخم‌مرغ‌ها رو اضافه کن و هم بزن تا کاملاً سفت بشن.'],
+tp:['بادمجان کبابی طعم دودی غذا رو تعیین می‌کنه.']}
+];
+
+// ===== آشپزخانه هوشمند: موتور و صفحه‌ها (مرحله ۱: موجودی، پیشنهاد، دستور، تنظیمات) =====
+if(!S.kt||S.kt.v!==1){if(S.kt)S.kt_old=S.kt;S.kt={v:1,inv:[],fav:[],hist:[],rec:[],up:{},al:[],st:STAPLES.slice(),exd:2,rv:[]}}
+['inv','fav','hist','rec','al','st','rv'].forEach(k=>{if(!Array.isArray(S.kt[k]))S.kt[k]=[]});if(!S.kt.up||typeof S.kt.up!='object')S.kt.up={};if(!(S.kt.exd>0))S.kt.exd=2;S.kt.inv=S.kt.inv.filter(x=>x&&x.id&&x.k&&x.q>0&&x.u);
+let kts='home',kv=null,ksv=null,kso='sc',kfl=[],kppl='',kcat='',kloc='',kq='',kis='ex',ked=null,kdel=null,KP=null;
+const KUL=Object.fromEntries(KU),KW={M:5,R:3,S:1.5,O:1},DFV={'آسان':1,'متوسط':2,'سخت':3},KST={g:100,kg:.5,ml:100,l:.5,n:1,pk:1,tbsp:1,tsp:1,cup:.5};
+const KFL=['ایرانی','سریع','گیاهی','گوشتی','مرغی','دریایی','کم‌هزینه','ساده','زمان‌بر'];
+const KSYN={'گوشت':'gosht','گوشت گوسفند':'gosht','گوشت گوساله':'gosht','رب':'rob','رب گوجه':'rob','لیمو':'limoo_torsh','گوجه':'gojeh','سبزی':'sabzi','فلفل دلمه':'felfel_dolme','فلفل':'felfel_siah','روغن':'roghan','نعنا':'nane_khoshk','لوبیا':'lobia_chitti','سیر':'sir','قارچ':'gharch'};
+const kn=k=>ING[k]?ING[k][0]:String(k).startsWith('x:')?String(k).slice(2):k;
+const ka=k=>(ING[k]&&ING[k][3]&&ING[k][3].a)||[];
+const kd=k=>(ING[k]&&ING[k][3])||{};
+const kb=(k,u)=>ING[k]?ING[k][2]:['g','kg','tbsp','tsp','cup'].includes(u)?'g':['ml','l'].includes(u)?'ml':'n';
+const kall=()=>[...REC,...S.kt.rec];
+const kpc=p=>fa(Math.round(p))+'٪';
+const kfr=q=>{if(q>=10)return fa(q>=100?Math.round(q/5)*5:Math.round(q));const w=Math.floor(q),f=Math.round((q-w)*4)/4,F={0:'',.25:'¼',.5:'½',.75:'¾'};if(f==1)return fa(w+1);return(w?fa(w):'')+(w&&f?' و ':'')+(F[f]||'')||fa(Math.round(q*10)/10)};
+const kfq=(q,u)=>kfr(q)+' '+KUL[u];
+function kkey(nm){nm=nm.trim();const s=nm.split(' (')[0];for(const k in ING){if(ING[k][0]==nm||ING[k][0].split(' (')[0]==s)return k}return KSYN[s]||'x:'+nm}
+function toB(k,q,u){const b=kb(k,u),d=kd(k);let v;
+if(b=='g')v={g:q,kg:q*1000,ml:q,l:q*1000,tbsp:q*(d.tb||12),tsp:q*(d.ts||4),cup:q*(d.cup||200),n:d.pc?q*d.pc:null,pk:d.pk?q*d.pk:null}[u];
+else if(b=='ml')v={ml:q,l:q*1000,tbsp:q*15,tsp:q*5,cup:q*240,g:q,kg:q*1000,n:d.pc?q*d.pc:null,pk:d.pk?q*d.pk:null}[u];
+else v={n:q,pk:d.pk?q*d.pk:null,g:d.pc?q/d.pc:null,kg:d.pc?q*1000/d.pc:null}[u];
+return v==null||isNaN(v)?null:v}
+const kexp=x=>!!(x.ex&&x.ex<T);
+const kitems=k=>S.kt.inv.filter(x=>x.k==k&&x.q>0&&!kexp(x));
+const knear=k=>kitems(k).some(x=>x.ex&&diff(x.ex,T)<=3);
+const khave=k=>{if(S.kt.st.includes(k))return Infinity;let s=0;for(const x of kitems(k)){const b=toB(k,x.q,x.u);if(b==null)return Infinity;s+=b}return s};
+function kmatch(r,sv){sv=sv||r.sv;const f=sv/r.sv,rows=[];let tw=0,sc=0,near=0;
+for(const[k,q,u,w,alts]of r.ig){const need=toB(k,q*f,u),h=khave(k),dc=need==null?(h>0?1:0):Math.min(1,h/need);let cov=dc,alt=null;
+if(dc<1&&alts)for(const a of alts){const A=(ALT[k]||{})[a];if(!A||ka(a).some(z=>S.kt.al.includes(z)))continue;const an=need==null?null:need*A.f,ah=khave(a),ac=an==null?(ah>0?1:0):Math.min(1,ah/an);if(ac*.9>cov){cov=ac*.9;alt={k:a,t:A.t,ok:ac>=1}}}
+const ok=dc>=1||!!(alt&&alt.ok),st=dc>=1?(S.kt.st.includes(k)?'stp':'ok'):alt&&alt.ok?'alt':cov>0?'part':'no';
+if(dc>=1&&st=='ok'&&knear(k))near++;
+const wt=KW[w];tw+=wt;sc+=wt*Math.min(1,cov);rows.push({k,q:q*f,u,w,ok,st,alt,cov})}
+const miss=rows.filter(x=>x.w!='O'&&!x.ok),all=rows.filter(x=>x.w!='O').length;
+const cat=!miss.length?0:miss.length<=2&&!miss.some(x=>x.w=='M')?1:2;
+const alg=[...new Set(r.ig.flatMap(x=>ka(x[0])))].filter(a=>S.kt.al.includes(a));
+return{r,rows,sc:Math.round(sc/tw*100),cat,miss,near,alg,all,have:all-miss.length,t:r.pp+r.ck}}
+const ktags=r=>{const c=r.ig.map(x=>ING[x[0]]?ING[x[0]][1]:12),t=[];if(r.ir!==0)t.push('ایرانی');if(r.c=='غذای سریع'||r.pp+r.ck<=30)t.push('سریع');if(!c.includes(0)&&!c.includes(1))t.push('گیاهی');if(r.ig.some(x=>x[0]=='gosht'||x[0]=='kime'))t.push('گوشتی');if(r.ig.some(x=>x[0]=='morgh'))t.push('مرغی');if(c.includes(1))t.push('دریایی');if(r.cheap)t.push('کم‌هزینه');if(r.df=='آسان')t.push('ساده');if(r.pp+r.ck>=120)t.push('زمان‌بر');return t};
+const kfok=r=>kfl.every(f=>ktags(r).includes(f))&&(!kppl||(kppl=='1'?r.sv<=2:kppl=='3'?r.sv>=3&&r.sv<=4:r.sv>=5))&&(!kq.trim()||(r.n+' '+r.ds).includes(kq.trim()));
+const ksort=(a,b)=>kso=='tm'?a.t-b.t||b.sc-a.sc:kso=='df'?DFV[a.r.df]-DFV[b.r.df]||b.sc-a.sc:kso=='ct'?a.r.c.localeCompare(b.r.c)||b.sc-a.sc:(!!a.alg.length-!!b.alg.length)||b.sc-a.sc||b.near-a.near||a.t-b.t;
+const kms=()=>kall().filter(kfok).map(r=>kmatch(r));
+const kfui=()=>`<div class=kf>${KFL.map(f=>`<button class="${kfl.includes(f)?'on':''}" onclick="kflt('${f}')">${f}</button>`).join('')}</div><div class=fm><select onchange="kso=this.value;render()"><option value=sc${kso=='sc'?' selected':''}>مرتب‌سازی: درصد تطبیق</option><option value=tm${kso=='tm'?' selected':''}>زمان پخت</option><option value=df${kso=='df'?' selected':''}>سختی</option><option value=ct${kso=='ct'?' selected':''}>دسته غذا</option></select><select onchange="kppl=this.value;render()"><option value=''>همه نفرات</option><option value=1${kppl=='1'?' selected':''}>۱ تا ۲ نفر</option><option value=3${kppl=='3'?' selected':''}>۳ تا ۴ نفر</option><option value=5${kppl=='5'?' selected':''}>۵ نفر و بیشتر</option></select></div>`;
+function kflt(f){kfl=kfl.includes(f)?kfl.filter(x=>x!=f):[...kfl,f];render()}
+const kcard=m=>{const r=m.r;return `<div class=it style="display:block;cursor:pointer" onclick="kopen('${r.id}')"><div style="display:flex;justify-content:space-between;gap:8px"><b>${r.e} ${esc(r.n)}</b><b style="color:var(--ac)">${kpc(m.sc)} تطبیق</b></div><div class=hb><i style="width:${m.sc}%"></i></div><small>${fa(m.have)} از ${fa(m.all)} ماده ضروری موجوده، ${fa(m.t)} دقیقه، ${fa(r.sv)} نفر، ${r.df}</small>${m.miss.length?`<small>کمبود: ${m.miss.slice(0,4).map(x=>kn(x.k)).join('، ')}${m.miss.length>4?' و ...':''}</small>`:''}${m.near?'<span class=tg>مصرف مواد نزدیک انقضا</span>':''}${m.alg.length?`<span class="tg w">حساسیت: ${m.alg.join('، ')}</span>`:''}</div>`};
+function kopen(id){kv=id;ksv=null;S.kt.rv=[id,...S.kt.rv.filter(x=>x!=id)].slice(0,10);save();render();try{scrollTo(0,0)}catch(e){}}
+function ksvs(d){const r=kall().find(x=>x.id==kv);ksv=Math.max(1,Math.min(20,(ksv||r.sv)+d));render()}
+const stT={ok:['موجود','var(--ac)'],alt:['جایگزین موجود','var(--ac)'],part:['موجودی کافی نیست','var(--wn)'],no:['موجود نیست','var(--rd)'],stp:['پایه همیشگی خونه','var(--mu)']};
+function kdet(id){const r=kall().find(x=>x.id==id);if(!r){kv=null;return''}const sv=ksv||r.sv,m=kmatch(r,sv),conf=r.ig.filter(x=>ka(x[0]).some(a=>S.kt.al.includes(a)));
+return `<div class=cn><button onclick="kv=null;render()">‹ برگشت</button><b>${r.e} ${esc(r.n)}</b><span style="width:64px"></span></div>`+
+`<div class=sum><small>${r.c}، ${r.m}</small><b>${kpc(m.sc)} تطبیق با موجودی</b><small>${esc(r.ds)}</small></div>`+
+(m.alg.length?`<div class=it style="display:block;border:1.5px solid var(--rd)"><b style="color:var(--rd)">هشدار حساسیت</b><small>این غذا ${m.alg.join('، ')} داره و با حساسیت ثبت‌شده‌ت سازگار نیست.</small></div>`:'')+
+`<div class=it style="display:block"><small>آماده‌سازی ${fa(r.pp)} دقیقه، پخت ${fa(r.ck)} دقیقه، سختی: ${r.df}</small></div>`+
+`<div class=it><span>تعداد نفرات</span><div class=qb><button class=gh2 onclick="ksvs(-1)">−</button><b>${fa(sv)}</b><button class=gh2 onclick="ksvs(1)">+</button></div></div>`+
+`<p class=lb>مواد لازم</p>`+m.rows.map(x=>{const s=stT[x.st],bad=ka(x.k).filter(a=>S.kt.al.includes(a));return `<div class=it style="display:block"><div style="display:flex;justify-content:space-between;gap:8px"><span>${esc(kn(x.k))}${x.w=='M'?' (اصلی)':x.w=='O'?' (اختیاری)':''}</span><b>${kfq(x.q,x.u)}</b></div><small style="color:${s[1]}">${s[0]}${x.alt?': '+esc(kn(x.alt.k)):''}</small>${bad.length?`<small style="color:var(--rd)">حساسیت: ${bad.join('، ')}</small>`:''}</div>`}).join('')+
+(()=>{const L=r.ig.filter(x=>x[4]&&x[4].length||ka(x[0]).some(a=>S.kt.al.includes(a)));return L.length?`<p class=lb>جایگزین‌ها</p>`+L.map(x=>{const ok=(x[4]||[]).filter(a=>!ka(a).some(z=>S.kt.al.includes(z))),bad=ka(x[0]).some(a=>S.kt.al.includes(a));return `<div class=it style="display:block"><b>${esc(kn(x[0]))}</b>${ok.length?ok.map(a=>`<small>${esc(kn(a))}: ${ALT[x[0]][a].t}</small>`).join(''):`<small>${bad?'این ماده با حساسیت ثبت‌شده‌ت سازگار نیست و جایگزین مناسبی تعریف نشده.':'جایگزین مناسبی تعریف نشده.'}</small>`}</div>`}).join(''):''})()+
+`<p class=lb>روش پخت</p>`+r.st.map((t,i)=>`<div class=it style="display:block"><small style="color:var(--tx);font-size:15px"><b style="color:var(--ac)">${fa(i+1)}.</b> ${esc(t)}</small></div>`).join('')+
+(r.tp&&r.tp.length?`<p class=lb>نکات مهم</p>`+r.tp.map(t=>`<div class=it><span style="font-size:15px">${esc(t)}</span></div>`).join(''):'')+
+`<p class=lb>نگهداری و ایمنی</p><div class=it style="display:block"><small>${SGT[r.s||'ot']}</small><small>گوشت، مرغ، ماهی و تخم‌مرغ باید کاملاً پخته بشن. دست‌ها و وسایلی که با گوشت خام در تماس بودن رو قبل از برخورد با مواد دیگه بشور.</small></div>`}
+const kthumb=x=>PH['i:'+x.id]?`<img class=kth src="${PH['i:'+x.id]}">`:'';
+const krow=x=>{const dl=x.ex?diff(x.ex,T):null;return `<div class=it><span>${kthumb(x)}${esc(x.nm)}<small>${KC[x.c]}${x.loc?'، '+x.loc:''}${x.nt?'، '+esc(x.nt):''}</small>${dl==null?'':dl<0?'<em class=late>منقضی شده</em>':dl<=3?`<em class=now>${fa(dl)} روز تا انقضا</em>`:`<small>انقضا: ${fdt(x.ex)}</small>`}</span><div class=qb><button class=gh2 onclick="kadj('${x.id}',-1)">−</button><b>${kfq(x.q,x.u)}</b><button class=gh2 onclick="kadj('${x.id}',1)">+</button></div><button class=gh2 onclick="ked='${x.id}';KP=null;render()">ویرایش</button><button class=x aria-label="حذف" onclick="kdl('${x.id}')">${kdel==x.id?'حذف؟':'×'}</button></div>`};
+const kform=x=>{const o=x||{nm:'',c:6,q:'',u:'g',loc:'یخچال',nt:'',pr:0,ex:'',pd:T},dd=Math.max(0,diff(T,o.pd||T));
+return `<div class=fm><input id=kn list=knl placeholder="نام ماده غذایی" value="${esc(o.nm)}" onchange="kauto()" style="flex:1 1 100%"><datalist id=knl>${Object.values(ING).map(v=>`<option>${v[0]}</option>`).join('')}</datalist><select id=kc style="flex:1 1 100%">${KC.map((c,i)=>`<option value=${i}${i==o.c?' selected':''}>${c}</option>`).join('')}</select><input id=kqn type=text inputmode=decimal placeholder="مقدار" value="${o.q||''}"><select id=ku>${KU.map(u=>`<option value=${u[0]}${u[0]==o.u?' selected':''}>${u[1]}</option>`).join('')}</select><select id=kl style="flex:1 1 100%">${KL.map(l=>`<option${l==o.loc?' selected':''}>${l}</option>`).join('')}</select><input id=kpd type=text inputmode=numeric placeholder="چند روز پیش خریدی؟ (۰ یعنی امروز)" value="${dd||''}" style="flex:1 1 100%"><select id=kxs style="flex:1 1 100%" onchange="g('kxp').style.display=this.value=='1'?'flex':'none'"><option value=0${o.ex?'':' selected'}>بدون تاریخ انقضا</option><option value=1${o.ex?' selected':''}>تاریخ انقضا دارم</option></select>${jpick(' id=kxp'+(o.ex?'':' style="display:none"'),o.ex||T,[0,1,2,3,4,5])}<input id=kpr type=text inputmode=numeric placeholder="قیمت خرید این مقدار، به تومان (اختیاری)" value="${o.pr?fa(o.pr):''}" oninput="fmt(this)" style="flex:1 1 100%">${x?'':`<label class=ck style="flex:1 1 100%"><input type=checkbox id=kex2><span>ثبت این خرید در بخش هزینه‌ها</span></label>`}<input id=knt placeholder="توضیحات (اختیاری)" value="${esc(o.nt||'')}" style="flex:1 1 100%"><label class=fb style="flex:1 1 100%">عکس (اختیاری)<input type=file accept="image/*" onchange="pickKP(this)"></label>${KP?`<img class=ph1 src="${KP}">`:''}<button onclick="ksave()">ذخیره</button><button class=gh2 onclick="ked=null;KP=null;render()">انصراف</button></div>`};
+function kauto(){const k=kkey(val('kn'));if(ING[k]){g('kc').value=ING[k][1];const b=ING[k][2];if(!(g('kqn').value))g('ku').value=b}}
+function pickKP(inp){const f=inp.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,500/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);KP=c.toDataURL('image/jpeg',.7);render()};im.src=r.result};r.readAsDataURL(f)}
+function ksch(x){unsched(x);if(x.ex)sched({n:x.n,w:x.ex,e:S.kt.exd,al:0,tm:'09:00',t:'نزدیک انقضا: '+x.nm})}
+function ksave(){const nm=val('kn');if(!nm)return g('kn').focus();const q=nw(val('kqn'));if(!(q>0))return toast('مقدار رو وارد کن');
+const key=kkey(nm),u=val('ku'),pr=num(val('kpr')),ex=val('kxs')=='1'?toIso(+val('wy'),+val('wm'),+val('wd')):'';
+const it={k:key,nm:ING[key]?ING[key][0]:nm,c:+val('kc'),q,u,loc:val('kl'),nt:val('knt'),pr,pd:addd(T,-Math.max(0,num(val('kpd')))),ex};
+let x;if(ked&&ked!='new'){x=S.kt.inv.find(z=>z.id==ked);Object.assign(x,it)}else{x={id:uid(),n:pn(),...it};S.kt.inv.push(x);if(pr&&g('kex2')&&g('kex2').checked)S.exp.push({id:uid(),a:pr,c:'خوراک',t:'خرید مواد: '+it.nm,w:T})}
+if(pr){const b=toB(key,q,u);if(b)S.kt.up[key]=pr/b}
+if(KP){PH['i:'+x.id]=KP;phSave('i:'+x.id,KP);KP=null}
+ksch(x);ked=null;save();render()}
+function kadj(id,d){const x=S.kt.inv.find(z=>z.id==id);x.q=Math.round((x.q+d*(KST[x.u]||1))*100)/100;if(x.q<=0){unsched(x);S.kt.inv=S.kt.inv.filter(z=>z.id!=id)}save();render()}
+function kdl(id){if(kdel==id){const x=S.kt.inv.find(z=>z.id==id);unsched(x);phDel('i:'+id);delete PH['i:'+id];S.kt.inv=S.kt.inv.filter(z=>z.id!=id);kdel=null;save();render();return}kdel=id;render();setTimeout(()=>{if(kdel==id){kdel=null;if(tab=='ks')render()}},4000)}
+const kinvl=()=>{const q=kq.trim();let a=S.kt.inv.filter(x=>(!kcat||x.c==+kcat)&&(!kloc||x.loc==kloc)&&(!q||x.nm.includes(q)));a.sort((p,s)=>kis=='nm'?p.nm.localeCompare(s.nm):(p.ex||'9')>(s.ex||'9')?1:-1);return a.length?a.map(krow).join(''):empty(S.kt.inv.length?'موردی پیدا نشد.':'موجودی خالیه. اولین ماده رو اضافه کن.')};
+const KV={
+home:()=>{const ms=kms(),inv=S.kt.inv.filter(x=>!kexp(x)),soon=S.kt.inv.filter(x=>x.ex&&diff(x.ex,T)<=3).sort((a,b)=>a.ex>b.ex?1:-1),top=ms.filter(m=>m.cat<2&&!m.alg.length).sort(ksort).slice(0,3);
+return `<div class=sum><small>آشپزخانه هوشمند</small><b>${fa(inv.length)} ماده موجود</b><small>${fa(ms.filter(m=>m.cat==0).length)} غذا با موجودی فعلی قابل تهیه‌ست</small></div>`+
+`<button class=bigb onclick="kts='sug';render()">با مواد موجود چه غذایی بپزم؟</button>`+
+`<div class=fm><button class=gh2 onclick="kloc='یخچال';kts='inv';render()">موجودی یخچال</button><button class=gh2 onclick="kloc='کابینت';kts='inv';render()">موجودی کابینت</button></div>`+
+(soon.length?`<p class=lb>نزدیک انقضا یا منقضی‌شده</p>`+soon.slice(0,5).map(krow).join(''):'')+
+(top.length?`<p class=lb>غذاهای پیشنهادی امروز</p>`+top.map(kcard).join(''):S.kt.inv.length?'':`<p class=lb>برای دیدن پیشنهادها، اول مواد موجودت رو توی «موجودی» ثبت کن.</p>`)+
+(S.kt.rv.length?`<p class=lb>آخرین غذاهای مشاهده‌شده</p>`+S.kt.rv.slice(0,4).map(id=>kall().find(r=>r.id==id)).filter(Boolean).map(r=>kcard(kmatch(r))).join(''):'')},
+inv:()=>(ked?kform(ked=='new'?null:S.kt.inv.find(x=>x.id==ked)):`<div class=fm><button onclick="ked='new';KP=null;render()">افزودن ماده غذایی</button></div>`)+
+`<div class=fm><select onchange="kcat=this.value;render()"><option value=''>همه دسته‌ها</option>${KC.map((c,i)=>`<option value=${i}${kcat==i&&kcat!==''?' selected':''}>${c}</option>`).join('')}</select><select onchange="kis=this.value;render()"><option value=ex${kis=='ex'?' selected':''}>مرتب‌سازی: انقضا</option><option value=nm${kis=='nm'?' selected':''}>نام</option></select></div><div class=kf><button class="${kloc?'':'on'}" onclick="kloc='';render()">همه محل‌ها</button>${KL.map(l=>`<button class="${kloc==l?'on':''}" onclick="kloc='${l}';render()">${l}</button>`).join('')}</div><input placeholder="جست‌وجو در موجودی" value="${esc(kq)}" oninput="kq=this.value;g('kl2').innerHTML=kinvl()" style="width:100%;margin-bottom:10px"><div id=kl2>${kinvl()}</div>`,
+sug:()=>{if(!S.kt.inv.length)return `<p class=lb>موجودی خالیه. برای پیشنهاد غذا، اول مواد موجودت رو ثبت کن.</p><button onclick="kts='inv';ked='new';render()">ثبت موجودی</button>`;
+const ms=kms().sort(ksort),G=[[0,'قابل تهیه با مواد موجود'],[1,'قابل تهیه با کمبود جزئی'],[2,'نیازمند خرید مواد بیشتر']],ok=ms.some(m=>m.cat<2);
+return kfui()+(ok?'':`<p class=lb>غذایی با موجودی فعلی کامل نشد. نزدیک‌ترین‌ها و مواد لازمشون رو ببین:</p>`)+G.map(([c,t])=>{const a=ms.filter(m=>m.cat==c);return a.length?`<p class=lb>${t} (${fa(a.length)})</p>`+(ok&&c==2?a.slice(0,5):c==2?a.slice(0,5):a).map(kcard).join(''):''}).join('')||empty('غذایی پیدا نشد؛ فیلترها رو کم کن.')},
+rec:()=>kfui()+`<input placeholder="جست‌وجو در دستورها" value="${esc(kq)}" oninput="kq=this.value;g('krl').innerHTML=krl()" style="width:100%;margin-bottom:10px"><div id=krl>${krl()}</div>`,
+set:()=>`<p class=lb>حساسیت‌های غذایی من</p><div class=kf>${KA.map(a=>`<button class="${S.kt.al.includes(a)?'on':''}" onclick="kal('${a}')">${a}</button>`).join('')}</div><p class=lb>غذاهای حاوی این مواد با هشدار نشون داده می‌شن و جایگزین‌های حاوی‌شون پیشنهاد نمی‌شه.</p>`+
+`<p class=lb>مواد پایه‌ای که همیشه توی خونه دارم (ثبت نمی‌کنم)</p>${['namak','felfel_siah','zardchoobeh','darchini','zire','nane_khoshk','roghan','shekar','ard'].map(k=>`<div class=it><label><input type=checkbox ${S.kt.st.includes(k)?'checked':''} onchange="kst('${k}')"><span>${ING[k][0]}</span></label></div>`).join('')}`+
+`<p class=lb>یادآوری انقضا</p><div class=fm><select onchange="kexd(+this.value)">${[1,2,3,5,7].map(d=>`<option value=${d}${S.kt.exd==d?' selected':''}>${fa(d)} روز قبل از انقضا یادآوری کن</option>`).join('')}</select></div>`+
+`<p class=lb>دستورها از دانش من نوشته شدن و آزمایشگاهی نیستن؛ مقدار و زمان‌ها رو با تجربه خودت تنظیم کن. این برنامه هنوز سیستم خرید و مجوز نداره، پس همه امکانات بدون محدودیت فعاله.</p>`
+};
+const krl=()=>{const a=kms().sort(ksort);return a.length?a.map(kcard).join(''):empty('دستوری پیدا نشد.')};
+function kal(a){S.kt.al=S.kt.al.includes(a)?S.kt.al.filter(x=>x!=a):[...S.kt.al,a];save();render()}
+function kst(k){S.kt.st=S.kt.st.includes(k)?S.kt.st.filter(x=>x!=k):[...S.kt.st,k];save();render()}
+function kexd(d){S.kt.exd=d;S.kt.inv.forEach(ksch);save();render()}
+const KTB=[['home','خانه'],['inv','موجودی'],['sug','پیشنهاد'],['rec','دستورها'],['set','تنظیمات']];
+V.ks=()=>kv?kdet(kv):`<div class=wk>${KTB.map(([k,l])=>`<button class="${k==kts?'on':''}" onclick="kts='${k}';kq='';render()">${l}</button>`).join('')}</div>`+KV[kts]();
+
 const find=(k,id)=>S[k].find(x=>x.id==id);
 function tg(k,id){const x=find(k,id);
 if(k=='chore')x.l=done(x)?'':T;else{x.ok=x.ok?0:1;if(k=='rem')x.ok?unsched(x):sched(x);if(k=='shop'&&x.n)x.ok?unsched(x):ssched(x)}
@@ -309,17 +691,19 @@ if(k=='chore'){const m=val('c');let ds=m=='all'?[0,1,2,3,4,5,6]:m=='pick'?[...do
 if(k=='rem'){const r={id:uid(),t,w:toIso(+val('wy'),+val('wm'),+val('wd')),m:num(val('m')),c:val('c'),e:+val('e'),al:g('al').checked?1:0,tm:gtm(),ok:0,n:Math.floor(Math.random()*1e9)};S.rem.push(r);sched(r)}}
 save();render()}
 function go(b){tab=b.dataset.t;render()}
-const TT={shop:'خرید',exp:'هزینه',rem:'یادآور',chore:'کارها',cal:'تقویم',pet:'حیوان خانگی'};
+const TT={shop:'خرید',exp:'هزینه',rem:'یادآور',chore:'کارها',ks:'آشپزخانه هوشمند',ch:'چالش ۷۵ روزه',cal:'تقویم',pet:'حیوان خانگی'};
 const tsum=k=>{
 if(k=='shop'){const n=S.shop.filter(x=>!x.ok).length;return n?fa(n)+' قلم مونده':'لیست خالیه'}
 if(k=='exp'){const mk=jd(T,MK),t=S.exp.filter(e=>jd(e.w,MK)==mk).reduce((s,e)=>s+e.a,0);return t?'این ماه: '+fa(t):'ثبت هزینه'}
 if(k=='rem'){const n=S.rem.filter(x=>!x.ok).length;return n?fa(n)+' یادآور فعال':'بدون یادآور'}
 if(k=='chore'){const w=new Date().getDay(),n=S.chore.filter(x=>(!x.ds||x.ds.includes(w))&&(!x.w||diff(x.w,T)<=6)&&!done(x)).length;return n?fa(n)+' کار برای امروز':'کاری برای امروز نیست'}
 if(k=='cal'){const o=occ(T);return o.length?o[0].t:'روزها و مناسبت‌ها'}
+if(k=='ch')return xsum();
+if(k=='ks'){if(!S.kt.inv.length)return'موجودی رو ثبت کن';const n=kall().map(r=>kmatch(r)).filter(m=>m.cat==0).length;return fa(S.kt.inv.length)+' ماده، '+fa(n)+' غذا قابل تهیه'}
 return S.pets.length?fa(S.pets.length)+' حیوان':'حیوان خانگی من'};
 const home=()=>`<div class=hm>${Object.keys(TT).map(k=>`<button onclick="openp('${k}')"><b>${TT[k]}</b><small>${esc(tsum(k))}</small></button>`).join('')}</div>`;
 function openp(k){tab=k;pv=null;try{history.pushState({k},'')}catch(e){}render();try{scrollTo(0,0)}catch(e){}}
-function back(){if(tab=='pet'&&pv){pv=null;render();return}if(history.state&&history.state.k)history.back();else{tab='home';render()}}
+function back(){if(tab=='ks'&&kv){kv=null;render();return}if(pvw){pvw=null;pdel=false;render();return}if(tab=='pet'&&pv){pv=null;render();return}if(history.state&&history.state.k)history.back();else{tab='home';render()}}
 function toast(m){const d=document.createElement('div');d.className='ts';d.textContent=m;document.body.appendChild(d);setTimeout(()=>d.remove(),2000)}
 let bt=0;
 const AP=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.App;
@@ -330,7 +714,7 @@ const due=S.rem.filter(x=>!x.ok&&diff(x.w,T)<=ed(x)).length;
 g('app').innerHTML=tab=='home'?`<header><div class=hr><h1>همراه خانه</h1><button class=cb onclick="tcal()">${S.cal=='g'?'تقویم میلادی':'تقویم شمسی'}</button></div><p>${jd(T,{weekday:'long'})}، ${jd(T,{day:'numeric',month:'long',year:'numeric'})}</p>${due?`<p class=al>${fa(due)} یادآور در انتظار</p>`:''}</header><main>${home()}</main>`:
 `<header><div class=hr><button class=cb onclick="back()">‹ منو</button><h1 style="font-size:22px">${TT[tab]}</h1><span style="width:64px"></span></div></header><main>${V[tab]()}</main>`}
 document.addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.tagName=='INPUT'){const f=e.target.closest('.fm');f&&f.querySelector('button').click()}});
-render();monthly();
+render();monthly();phLoad();xsch();
 </script>
 </body>
 </html>
